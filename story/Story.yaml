@@ -1,0 +1,194 @@
+start:
+  - play morningBGM:
+  - show room: WITH FADE CONTINUE
+  - show deuzi: happy AT CENTER WITH FADE
+  - deuzi says: Welcome to the (bold)Story Question Test Game!(end)
+  - wait: 300
+  - deuzi says normal: This game is designed to test our direct question system.
+  - deuzi says: Let's start with your first choice. Are you ready to test the questions?
+  - trackScene:
+      scene: "start"
+  - askQuestion:
+      question: "Are you ready to test the question system?"
+      options: ["Yes, let's test it!", "Maybe later", "I'm not sure"]
+  - choice:
+    - "Yes, let's test it!":
+      - deuzi says happy: Great! You chose to test the questions.
+      - recordAnswer:
+          question: "Are you ready to test the question system?"
+          answer: "Yes, let's test it!"
+          scene: "start"
+    - "Maybe later":
+      - deuzi says: That's okay, we can test it later.
+      - recordAnswer:
+          question: "Are you ready to test the question system?"
+          answer: "Maybe later"
+          scene: "start"
+    - "I'm not sure":
+      - deuzi says normal: That's a valid response too.
+      - recordAnswer:
+          question: "Are you ready to test the question system?"
+          answer: "I'm not sure"
+          scene: "start"
+  - deuzi says normal: Now let's test different backgrounds and atmospheres.
+  - scene: testBackgrounds
+
+testBackgrounds:
+  - trackScene:
+      scene: "testBackgrounds"
+  - show room_night: WITH FADE CONTINUE
+  - deuzi says: Now we're in a night setting. How does this atmosphere make you feel?
+  - askQuestion:
+      question: "How does the night atmosphere make you feel?"
+      options: ["It's peaceful and calm", "It's mysterious and intriguing", "It's a bit dark and eerie"]
+  - choice:
+    - "It's peaceful and calm":
+      - deuzi says happy: I'm glad you find it peaceful!
+      - recordAnswer:
+          question: "How does the night atmosphere make you feel?"
+          answer: "It's peaceful and calm"
+          scene: "testBackgrounds"
+    - "It's mysterious and intriguing":
+      - deuzi says: The night does have its secrets...
+      - recordAnswer:
+          question: "How does the night atmosphere make you feel?"
+          answer: "It's mysterious and intriguing"
+          scene: "testBackgrounds"
+    - "It's a bit dark and eerie":
+      - deuzi says normal: Sometimes darkness can be unsettling.
+      - recordAnswer:
+          question: "How does the night atmosphere make you feel?"
+          answer: "It's a bit dark and eerie"
+          scene: "testBackgrounds"
+  - deuzi says: Let's try a different lighting setup.
+  - scene: testLighting
+
+testLighting:
+  - trackScene:
+      scene: "testLighting"
+  - show room_night_light: WITH FADE CONTINUE
+  - deuzi says happy: Now with some light added. How does this compare to the previous setting?
+  - askQuestion:
+      question: "How does the night with light compare to the previous setting?"
+      options: ["Much better with light", "I still prefer the day setting", "It's a nice balance"]
+  - choice:
+    - "Much better with light":
+      - deuzi says happy: Light can change everything!
+      - recordAnswer:
+          question: "How does the night with light compare to the previous setting?"
+          answer: "Much better with light"
+          scene: "testLighting"
+    - "I still prefer the day setting":
+      - deuzi says normal: Everyone has their preferences!
+      - recordAnswer:
+          question: "How does the night with light compare to the previous setting?"
+          answer: "I still prefer the day setting"
+          scene: "testLighting"
+    - "It's a nice balance":
+      - deuzi says happy: Balance is often the best approach!
+      - recordAnswer:
+          question: "How does the night with light compare to the previous setting?"
+          answer: "It's a nice balance"
+          scene: "testLighting"
+  - deuzi says normal: Let's test character emotions now.
+  - scene: testEmotions
+
+testEmotions:
+  - trackScene:
+      scene: "testEmotions"
+  - show room: WITH FADE CONTINUE
+  - deuzi says normal: I'm showing my normal expression now. How does this make you feel?
+  - wait: 1500
+  - deuzi says happy: Now I'm happy! How does this change the mood?
+  - wait: 1500
+  - deuzi says angry: And now I'm angry. How does this affect the atmosphere?
+  - wait: 1000
+  - deuzi says normal: Now, thinking about all three emotions you just saw...
+  - wait: 500
+  - askQuestion:
+      question: "Which character emotion did you find most engaging?"
+      options: ["Normal - balanced and relatable", "Happy - positive and uplifting", "Angry - intense and dramatic"]
+  - choice:
+    - "Normal - balanced and relatable":
+      - deuzi says normal: I appreciate that you find my normal state relatable!
+      - recordAnswer:
+          question: "Which character emotion did you find most engaging?"
+          answer: "Normal - balanced and relatable"
+          scene: "testEmotions"
+    - "Happy - positive and uplifting":
+      - deuzi says happy: I'm glad my happiness resonates with you!
+      - recordAnswer:
+          question: "Which character emotion did you find most engaging?"
+          answer: "Happy - positive and uplifting"
+          scene: "testEmotions"
+    - "Angry - intense and dramatic":
+      - deuzi says normal: Even strong emotions can be engaging in stories.
+      - recordAnswer:
+          question: "Which character emotion did you find most engaging?"
+          answer: "Angry - intense and dramatic"
+          scene: "testEmotions"
+  - deuzi says normal: Let's test one more scenario before we finish.
+  - scene: testFinal
+
+testFinal:
+  - trackScene:
+      scene: "testFinal"
+  - deuzi says: This is our final test scenario.
+  - deuzi says normal: We've tested questions after choices, background changes, and character emotions.
+  - deuzi says happy: Now let's see how the final question works!
+  - askQuestion:
+      question: "How would you rate your overall experience?"
+      options: ["Excellent - loved it!", "Good - enjoyed it", "Fair - it was okay", "Poor - needs improvement"]
+  - choice:
+    - "Excellent - loved it!":
+      - recordAnswer:
+          question: "How would you rate your overall experience?"
+          answer: "Excellent - loved it!"
+          scene: "testFinal"
+    - "Good - enjoyed it":
+      - recordAnswer:
+          question: "How would you rate your overall experience?"
+          answer: "Good - enjoyed it"
+          scene: "testFinal"
+    - "Fair - it was okay":
+      - recordAnswer:
+          question: "How would you rate your overall experience?"
+          answer: "Fair - it was okay"
+          scene: "testFinal"
+    - "Poor - needs improvement":
+      - recordAnswer:
+          question: "How would you rate your overall experience?"
+          answer: "Poor - needs improvement"
+          scene: "testFinal"
+  - scene: endGame
+
+endGame:
+  - deuzi says normal: Story question testing complete!
+  - hide ALL:
+  - effect ROLLINGCREDITS:
+    endGame: true
+    text:
+      - Story Question Test Game
+      - Created for testing purposes
+      - null
+      - RenJS.V2 created by
+      - lunafromthemoon
+      - null
+      - In collaboration with
+      - RockDaFox
+      - null
+      - Inspired by Ren'Py
+      - Powered by PhaserJS
+      - null
+      - null
+      - Thanks for testing
+      - The Story Question System
+      - null
+      - background art and cgs by
+      - konett
+      - null
+      - characters by
+      - Shida
+      - null
+      - music by
+      - Evan Schaeffer
