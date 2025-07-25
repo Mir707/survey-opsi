@@ -26,6 +26,9 @@ player:
     SMA_male thinking: assets/player/SMA_male_thinking.jpg
     SMP male happy: assets/player/SMP_male_happy.jpg
     SMP male concerned: assets/player/SMP_male_concerned.jpg
+    SMP male proud: assets/player/SMP male proud.jpg
+    SMP male thinking: assets/player/SMP male thinking.jpg
+    SMP male neutral: assets/player/SMP male neutral.jpg
 cgs:
   phone1: assets/objects/phone1.png
   phone2: assets/objects/phone2.png
