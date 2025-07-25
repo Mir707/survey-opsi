@@ -7,6 +7,7 @@ backgrounds:
   home: assets/backgrounds/Home.jpg
   registration_office: assets/backgrounds/Registration Office.jpg
   school_hallway: assets/backgrounds/School Hallway.jpg
+  SIJ_Gedung: assets/backgrounds/SIJ Gedung.jpg
 
 characters:
   deuzi:
