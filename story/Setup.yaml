@@ -19,11 +19,11 @@ player:
   displayName: Player
   speechColour: "#f0a500"
   looks:
-    SMA_male concerned: assets/player/SMA_male_concerned.jpg
-    SMA_male happy: assets/player/SMA_male_happy.jpg
-    SMA_male neutral: assets/player/SMA_male_neutral.jpg
-    SMA_male proud: assets/player/SMA_male_proud.jpg
-    SMA_male thinking: assets/player/SMA_male_thinking.jpg
+    SMA_female concerned: assets/player/SMA_female_concerned.jpg
+    SMA_female happy: assets/player/SMA_female_happy.jpg
+    SMA_female neutral: assets/player/SMA_female_neutral.jpg
+    SMA_female proud: assets/player/SMA_female_proud.jpg
+    SMA_female thinking: assets/player/SMA_female_thinking.jpg
     SMP male happy: assets/player/SMP_male_happy.jpg
     SMP male concerned: assets/player/SMP_male_concerned.jpg
     SMP male proud: assets/player/SMP male proud.jpg
