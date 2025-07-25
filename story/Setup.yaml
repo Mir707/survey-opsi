@@ -3,6 +3,10 @@ backgrounds:
   room_night: assets/backgrounds/room_night.jpg
   room_night_light: assets/backgrounds/room_night_light.jpg
   school_entrance: assets/backgrounds/school_entrance.jpg
+  classroom: assets/backgrounds/Classroom.jpg
+  home: assets/backgrounds/Home.jpg
+  registration_office: assets/backgrounds/Registration Office.jpg
+  school_hallway: assets/backgrounds/School Hallway.jpg
 
 characters:
   deuzi:
