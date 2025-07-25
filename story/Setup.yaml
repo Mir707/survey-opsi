@@ -10,13 +10,20 @@ backgrounds:
   SIJ_Gedung: assets/backgrounds/SIJ Gedung.jpg
 
 characters:
-  deuzi:
-    displayName: Deuzilene
-    speechColour: "#ca90cf"
+  Ahmad:
+    displayName: Ahmad
+    speechColour: "#f0a500"
     looks:
-      normal: assets/characters/Char3NormalSchool.png
-      happy: assets/characters/Char3HappySchool.png
-      angry: assets/characters/Char3AngrySchool.png
+      Smile: assets/characters/Ahmad_male_Smile.jpg
+player:
+  displayName: Player
+  speechColour: "#f0a500"
+  looks:
+    SMA_male concerned: assets/player/SMA_male_concerned.jpg
+    SMA_male happy: assets/player/SMA_male_happy.jpg
+    SMA_male neutral: assets/player/SMA_male_neutral.jpg
+    SMA_male proud: assets/player/SMA_male_proud.jpg
+    SMA_male thinking: assets/player/SMA_male_thinking.jpg
 
 cgs:
   phone1: assets/objects/phone1.png
