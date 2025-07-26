@@ -37,10 +37,29 @@ start:
   - call TextInput: var whatsapp WhatsApp
   - researcher says neutral: Terima kasih, {TextInputWhatsApp_whatsapp}. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
   - researcher says: Mari kita mulai permainannya!
-  - scene: endGame
+  - scene: identitasScene
+
+identitasScene:
+  - trackScene:
+      scene: "identitas diri"
+  - show sij_gedung: WITH FADE CONTINUE
+  - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjlanan menemukan siapa diriku sebenernya.
+  - player says neutral: bagaimana ya rasanya waktu itu? Aku masih inget pengalaman mendaftar di sekolah indonesia jeddah....
+  - askQuestion:
+      question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+      options: ["Sangat Mudah", "Mudah", "Cukup Mudah", "Sulit", "Sangat Sulit"]  
+  - choice:
+    - "Sangat Mudah":
+      - player says happy: Alahmdulillah proses pendaftarannya sangat lancar. Staf sekolah ramah sekali dan semuanya terorganisir dengan baik.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij sangat positif.
+      - recordAnswer:
+          question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+          answer: "Sangat Mudah"
+          scene: "identitas diri"
+
 
 endGame:
-  - researcher says smile: Thank you for playing!
+  - researcher says neutral: Thank you for playing!
   - hide ALL
   - effect ROLLINGCREDITS:
     endGame: true
