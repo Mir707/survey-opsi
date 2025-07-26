@@ -3,11 +3,11 @@ backgrounds:
   room_night: assets/backgrounds/room_night.jpg
   room_night_light: assets/backgrounds/room_night_light.jpg
   school_entrance: assets/backgrounds/school_entrance.jpg
-  classroom: assets/backgrounds/Classroom.jpg
-  home: assets/backgrounds/Home.jpg
-  registration_office: assets/backgrounds/Registration Office.jpg
-  school_hallway: assets/backgrounds/School Hallway.jpg
-  SIJ_Gedung: assets/backgrounds/SIJ Gedung.jpg
+  classroom: assets/backgrounds/classroom.jpg
+  home: assets/backgrounds/home.jpg
+  registration_office: assets/backgrounds/registration_office.jpg
+  school_hallway: assets/backgrounds/school_hallway.jpg
+  sij_gedung: assets/backgrounds/sij_gedung.jpg
 
 characters:
   Ahmad:
