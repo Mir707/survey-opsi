@@ -4,7 +4,7 @@ console.log('🚀 Boot.js with smart choice detection...');
 class DataCollectionPlugin extends RenJS.Plugin {
   constructor(name, game) {
     super(name, game);
-    this.googleScriptUrl = 'https://script.google.com/macros/s/AKfycbwCjPCOFr5o6LVM6e0pIPDNT27TioJY3DLp5AUNGTCp7OmLyczU8n799P5mgYesuKw5/exec';
+    this.googleScriptUrl = 'https://script.google.com/macros/s/AKfycbyJbVOpUz8nY2VGuBvrxMOWX6AHEYCI1PZa4t4TzqcrHNiQe0OP_9nkdXqL--AQb3Hi/exec';
     this.lastChoiceTime = 0;
     this.choiceDelay = 2000; // 2 seconds delay between recording choices
     this.recordedAnswers = new Set(); // Track what we've already recorded
@@ -139,10 +139,57 @@ class DataCollectionPlugin extends RenJS.Plugin {
     }
   }
 
+  // Helper function to get the player's name
+  getPlayerName() {
+    try {
+      // Try different variable names that might contain the player's name
+      const vars = this.game.managers.logic.vars;
+      
+      // Check for TextInput plugin name format
+      if (vars.TextInputName_player) {
+        return vars.TextInputName_player;
+      }
+      
+      // Check for other common variable names
+      if (vars.playerName) {
+        return vars.playerName;
+      }
+      
+      if (vars.username) {
+        return vars.username;
+      }
+      
+      if (vars.name) {
+        return vars.name;
+      }
+      
+      // Try to get the display name from the player character
+      if (this.game.managers.character.characters.player && 
+          this.game.managers.character.characters.player.config.displayName) {
+        const displayName = this.game.managers.character.characters.player.config.displayName;
+        // Only return if it's not the default "Player"
+        if (displayName && displayName !== 'Player') {
+          return displayName;
+        }
+      }
+      
+      console.log('🤷 No player name found in variables:', Object.keys(vars));
+      return 'Anonymous';
+    } catch (error) {
+      console.error('❌ Error getting player name:', error);
+      return 'Anonymous';
+    }
+  }
+
   recordAnswer(params) {
     console.log('📊 Recording selected answer:', params);
+
+    // Get the player's name
+    const playerName = this.getPlayerName();
+    console.log('👤 Player name found:', playerName);
     
     const data = {
+      playerName: playerName,
       scene: params.scene || 'unknown',
       question: params.question || 'no question',
       answer: params.answer || 'no answer',
@@ -277,6 +324,13 @@ window.setGoogleScriptUrl = function(url) {
   console.log('💡 Now test with: testRecordAnswer()');
 };
 
-console.log('🎮 Game launched with smart choice detection');
-console.log('💡 This version uses timing and deduplication to only record actual choices');
+// Function to manually check what player name is detected
+window.checkPlayerName = function() {
+  console.log('👤 Current player name:', dataPlugin.getPlayerName());
+  console.log('📋 All game variables:', dataPlugin.game.managers.logic.vars);
+};
+
+console.log('🎮 Game launched with smart choice detection and name collection');
+console.log('💡 This version captures player names and includes them in the database');
 console.log('💡 To test manually, use: testRecordAnswer()');
+console.log('💡 To check player name, use: checkPlayerName()');

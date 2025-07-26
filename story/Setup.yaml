@@ -10,25 +10,27 @@ backgrounds:
   sij_gedung: assets/backgrounds/sij_gedung.jpg
 
 characters:
-  Ahmad:
+  ahmad:
     displayName: Ahmad
     speechColour: "#f0a500"
     looks:
-      Smile: assets/characters/Ahmad_male_Smile.jpg
-player:
-  displayName: Player
-  speechColour: "#f0a500"
-  looks:
-    SMA_female concerned: assets/player/SMA_female_concerned.jpg
-    SMA_female happy: assets/player/SMA_female_happy.jpg
-    SMA_female neutral: assets/player/SMA_female_neutral.jpg
-    SMA_female proud: assets/player/SMA_female_proud.jpg
-    SMA_female thinking: assets/player/SMA_female_thinking.jpg
-    SMP male happy: assets/player/SMP_male_happy.jpg
-    SMP male concerned: assets/player/SMP_male_concerned.jpg
-    SMP male proud: assets/player/SMP male proud.jpg
-    SMP male thinking: assets/player/SMP male thinking.jpg
-    SMP male neutral: assets/player/SMP male neutral.jpg
+      smile: assets/characters/ahmad_smile.png
+
+  player:
+    displayName: Player
+    speechColour: "#f0a500"
+    looks:
+      SMA_female concerned: assets/player/SMA_female_concerned.png
+      SMA_female happy: assets/player/SMA_female_happy.png
+      SMA_female neutral: assets/player/SMA_female_neutral.png
+      SMA_female proud: assets/player/SMA_female_proud.png
+      SMA_female thinking: assets/player/SMA_female_thinking.png
+      SMP male happy: assets/player/SMP_male_happy.png
+      SMP male concerned: assets/player/SMP_male_concerned.png
+      SMP male proud: assets/player/SMP male proud.png
+      SMP male thinking: assets/player/SMP male thinking.png
+      SMP male neutral: assets/player/SMP male neutral.png
+      
 cgs:
   phone1: assets/objects/phone1.png
   phone2: assets/objects/phone2.png
@@ -36,6 +38,7 @@ cgs:
 music:
   rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
   morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+
 sfx:
   ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
   ringtoneSFX2: assets/audio/alcatel-top_secret.mp3
@@ -46,3 +49,4 @@ extra:
     sakura: assets/ambient/sakura-petals.png 17 26
     snowflakes: assets/ambient/snowflakes.png 17 17
     snowflakes_large: assets/ambient/snowflakes_large.png 64 64
+    confirmBtn: assets/gui/confirm.png 163 82
