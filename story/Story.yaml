@@ -1,36 +1,46 @@
 start:
-  - play morningBGM:
+  - play original_bgm:
   - show classroom: WITH FADE CONTINUE
-  - ahmad says smile: Welcome to the (bold)Story Question Test Game!(end)
+  - show researcher: Halo, selamat datang! Senang sekali bisa bertemu dengan kalian, mari memulai perjalanan mengenal diri bersama saya.
+  - researcher says neutral: Perkenalkan, saya Dr. Sari. Saat ini saya sedang melakukan penelitian tentang pengalaman anak muda Indonesia di Arab Saudi.
+  - researcher says neutral: Cerita dan pengalaman kalian sangat berarti. Lewat kisah kalian, kami ingin lebih memahami bagaimana berbagai identitas bisa terbentuk.
+  - researcher says neutral: Nantinya, kita akan menjelajahi bersama berbagai aspek kehidupan teman-teman selama tinggal di Jeddah lewat pengalaman interaktif ini.
+  - researcher says neutral: Tenang saja, semua jawaban teman-teman pasti dijaga kerahasiaannya dan hanya akan digunakan untuk keperluan penelitian yang penting.
   - wait: 300
-  - ahmad says: What's your name?
+  - researcher says neutral: Sebelum kita mulai, saya ingin tahu sedikit tentang kalian. Pertama-tama, apa nama kalian?
   - call TextInput: name player Nama
-  - ahmad says smile: Nice to meet you, {TextInputName_player}!
-  - ahmad says: I'm Ahmad, your guide for today.
-  - ahmad says: Can I know your gender?
+  - researcher says neutral: Terima kasih, {TextInputName_player}. Nama yang indah!
+  - researcher says neutral: Sekarang, saya ingin tahu lebih banyak tentang kalian. Apa jenis kelamin kalian?
+  # TODO: cari cara untuk lembar persetujuan
   - trackScene:
       scene: "intro"
   - askQuestion:
-      question: "What's your gender?"
-      options: ["Male", "Female"]
+      question: "Apa jenis kelamin kalian?"
+      options: ["Laki-laki", "Perempuan"]
   - choice:
-    - "Male": # TODO: choose a better answer
-      - ahmad says: I see, {TextInputName_player} is a male. 
+    - "Laki-laki": # TODO: choose a better answer
+      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai laki-laki!
       - recordAnswer:
-          question: "What's your gender?"
-          answer: "Male"
+          question: "Apa jenis kelamin kalian?"
+          answer: "Laki-laki"
           scene: "intro"
-    - "Female":
-      - ahmad says: I see, {TextInputName_player} is a female. 
+    - "Perempuan":
+      - researcher says: Terima kasih, {TextInputName_player} anda terdeteksi sebagai perempuan!
       - recordAnswer:
-          question: "What's your gender?"
-          answer: "Female"
+          question: "Apa jenis kelamin kalian?"
+          answer: "Perempuan"
           scene: "intro"
-  - ahmad says: Let's start the game!
+  - askQuestion:
+      question: "Kalian dari jenjang apa?"
+      options: ["SMA", "SMP"]
+  - researcher says neutral: untuk berkomunikasi lebih dekat dengan kalian, saya ingin tahu berapa nomor whatsaap kalian?
+  - call TextInput: var whatsapp WhatsApp
+  - researcher says neutral: Terima kasih, {TextInputWhatsApp_whatsapp}. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
+  - researcher says: Mari kita mulai permainannya!
   - scene: endGame
 
 endGame:
-  - ahmad says smile: Thank you for playing!
+  - researcher says smile: Thank you for playing!
   - hide ALL
   - effect ROLLINGCREDITS:
     endGame: true

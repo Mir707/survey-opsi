@@ -1,4 +1,6 @@
-name: OPSI Game
+name: Identity adventure
+description: |
+  A visual novel about identity, choices, and consequences.(blom fix)
 resolution:
   - 800
   - 600

@@ -1,13 +1,23 @@
 
 backgrounds:
-  room_night: assets/backgrounds/room_night.jpg
-  room_night_light: assets/backgrounds/room_night_light.jpg
+  acara_sekolah: assets/backgrounds/acara_sekolah.png
+  bandara: assets/backgrounds/bandara.png
   school_entrance: assets/backgrounds/school_entrance.jpg
   classroom: assets/backgrounds/classroom.jpg
   home: assets/backgrounds/home.jpg
+  jeddah_season: assets/backgrounds/jeddah_season.png
   registration_office: assets/backgrounds/registration_office.jpg
   school_hallway: assets/backgrounds/school_hallway.jpg
   sij_gedung: assets/backgrounds/sij_gedung.jpg
+  sijsunset: assets/backgrounds/sijsunset.png
+  taman_sekolah: assets/backgrounds/taman_sekolah.jpg
+  lapangan: assets/backgrounds/lapangan.jpg
+  lembar_persetujuan: assets/backgrounds/lembar_persetujuan.jpg
+  mall: assets/backgrounds/mall.png
+  meja_makan: assets/backgrounds/meja_makan.png
+  papan_pengumuamnan: assets/backgrounds/papan_pengumuman.png
+  ruang_komputer: assets/backgrounds/ruang_komputer.png
+  salim: assets/backgrounds/salim.png
 
 characters:
   ahmad:
@@ -15,6 +25,12 @@ characters:
     speechColour: "#f0a500"
     looks:
       smile: assets/characters/ahmad_smile.png
+
+  researcher:
+    displayName: Dr. Sari
+    speechColour: "#f0a500"
+    looks:
+      neutral: assets/characters/researcher_neutral.png
 
   player:
     displayName: Player
@@ -30,19 +46,20 @@ characters:
       SMP male proud: assets/player/SMP male proud.png
       SMP male thinking: assets/player/SMP male thinking.png
       SMP male neutral: assets/player/SMP male neutral.png
-      
+      SMP_female happy: assets/player/SMP_female_happy.jpg
+      SMP_female concerned: assets/player/SMP_female_concerned.jpg
+      SMP_female proud: assets/player/SMP_female_proud.jpg
+      SMP_female thinking: assets/player/SMP_female_thinking.jpg
+
 cgs:
   phone1: assets/objects/phone1.png
   phone2: assets/objects/phone2.png
 
 music:
-  rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
-  morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
-
-sfx:
-  ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
-  ringtoneSFX2: assets/audio/alcatel-top_secret.mp3
-
+  home: assets/audio/home.mp3
+  original_bgm: assets/audio/original_bgm.mp3
+  Sekolha: assets/audio/Sekolha.mp3
+  
 extra:
   spritesheets:
     rain: assets/ambient/rain.png 17 17
