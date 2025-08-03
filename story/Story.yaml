@@ -16,42 +16,39 @@ start:
       scene: "intro"
   - askQuestion:
       question: "Apa jenis kelamin kalian?"
-      options: ["Perempuan", "Laki-Laki"]
+      options: ["Perempuan", "Laki-laki"]
   - choice:
     - "Perempuan": # TODO: choose a better answer
-      - researcher says neutral: Terima kasih, {TextInputName_player} anda terdetksi sebagai Perempuan!
+      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai peg rempuan!
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
           answer: "Perempuan"
-          scene: "intro"
-    - "Perempuan":
-      - researcher says neutral: Terima kasih, {TextInputName_player} anda terdeteksi sebagai Laki-Laki!
+          playerName: {TextInputName_player}
+    - "Laki-laki":
+      - researcher says: Terima kasih, {TextInputName_player} anda terdeteksi sebagai laki-laki!
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
-          answer: "Laki-Laki"
-          scene: "intro"
-  - researcher says neutral: Bagus sekali, sekarang saya ingin tahu dari jenjang pendidikan mana kalian berasal?
-  - researcher says neutral: Apakah kalian dari jenjang SMA atau SMP?
-  - show sij_gedung: WITH FADE CONTINUE
+          answer: "Laki-laki"
+          playerName: {TextInputName_player}
   - askQuestion:
       question: "Kalian dari jenjang apa?"
       options: ["SMA", "SMP"]
-  - choice: 
+  - choice:
     - "SMA":
-      - researcher says neutral: Terima kasih, {TextInputName_player}. Bagus sekali, anda dari jenjang SMA.
+      - researcher says: Ah, kalian dari SMA! Bagus sekali.
       - recordAnswer:
-          question: "kalian dari jenjang apa?"
+          question: "Kalian dari jenjang apa?"
           answer: "SMA"
-          scene: "intro"
+          playerName: {TextInputName_player}
     - "SMP":
-      - researcher says neutral: Terima kasih, {TextInputName_player}. Bagus sekali, anda dari jenjang SMP.
+      - researcher says: Ah, kalian dari SMP! Bagus sekali.
       - recordAnswer:
-          question: "kalian dari jenjang apa?"
+          question: "Kalian dari jenjang apa?"
           answer: "SMP"
-          scene: "intro"
+          playerName: {TextInputName_player}
   - researcher says neutral: untuk berkomunikasi lebih dekat dengan kalian, saya ingin tahu berapa nomor whatsaap kalian?
-  - call TextInput: var whatsapp WhatsApp
-  - researcher says neutral: Terima kasih, {TextInputWhatsApp_whatsapp}. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
+  - call TextInput: var phoneNumber
+  - researcher says neutral: Terima kasih, nomor {phoneNumber} sudah terdaftar. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
   - researcher says: Mari kita mulai permainannya!
   - scene: identitasScene
 
@@ -102,14 +99,9 @@ identitasScene:
           scene: "identitas diri"
   - scene: kantorregistrasi 
 
-          
-
-
-
-
-
 endGame:
-  - researcher says neutral: Thank you for playing!
+  - researcher says neutral: Terima kasih telah bermain!
+  - call DataCollection: name sendSessionData
   - hide ALL
   - effect ROLLINGCREDITS:
     endGame: true
