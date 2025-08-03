@@ -16,23 +16,39 @@ start:
       scene: "intro"
   - askQuestion:
       question: "Apa jenis kelamin kalian?"
-      options: ["Laki-laki", "Perempuan"]
+      options: ["Perempuan", "Laki-Laki"]
   - choice:
-    - "Laki-laki": # TODO: choose a better answer
-      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai laki-laki!
-      - recordAnswer:
-          question: "Apa jenis kelamin kalian?"
-          answer: "Laki-laki"
-          scene: "intro"
-    - "Perempuan":
-      - researcher says: Terima kasih, {TextInputName_player} anda terdeteksi sebagai perempuan!
+    - "Perempuan": # TODO: choose a better answer
+      - researcher says neutral: Terima kasih, {TextInputName_player} anda terdetksi sebagai Perempuan!
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
           answer: "Perempuan"
           scene: "intro"
+    - "Perempuan":
+      - researcher says neutral: Terima kasih, {TextInputName_player} anda terdeteksi sebagai Laki-Laki!
+      - recordAnswer:
+          question: "Apa jenis kelamin kalian?"
+          answer: "Laki-Laki"
+          scene: "intro"
+  - researcher says neutral: Bagus sekali, sekarang saya ingin tahu dari jenjang pendidikan mana kalian berasal?
+  - researcher says neutral: Apakah kalian dari jenjang SMA atau SMP?
+  - show sij_gedung: WITH FADE CONTINUE
   - askQuestion:
       question: "Kalian dari jenjang apa?"
       options: ["SMA", "SMP"]
+  - choice: 
+    - "SMA":
+      - researcher says neutral: Terima kasih, {TextInputName_player}. Bagus sekali, anda dari jenjang SMA.
+      - recordAnswer:
+          question: "kalian dari jenjang apa?"
+          answer: "SMA"
+          scene: "intro"
+    - "SMP":
+      - researcher says neutral: Terima kasih, {TextInputName_player}. Bagus sekali, anda dari jenjang SMP.
+      - recordAnswer:
+          question: "kalian dari jenjang apa?"
+          answer: "SMP"
+          scene: "intro"
   - researcher says neutral: untuk berkomunikasi lebih dekat dengan kalian, saya ingin tahu berapa nomor whatsaap kalian?
   - call TextInput: var whatsapp WhatsApp
   - researcher says neutral: Terima kasih, {TextInputWhatsApp_whatsapp}. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
@@ -41,7 +57,7 @@ start:
 
 identitasScene:
   - trackScene:
-      scene: "identitas diri"
+      scene: "identitas"
   - show sij_gedung: WITH FADE CONTINUE
   - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjlanan menemukan siapa diriku sebenernya.
   - player says neutral: bagaimana ya rasanya waktu itu? Aku masih inget pengalaman mendaftar di sekolah indonesia jeddah....
@@ -56,6 +72,40 @@ identitasScene:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Mudah"
           scene: "identitas diri"
+    - "Mudah":
+      - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
+      - recordAnswer:
+          question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+          answer: "Mudah"
+          scene: "identitas diri"
+    - "Cukup Mudah":
+      - player says happy: sebenrnya butuh persiapan dan kesabaran juuga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
+      - recordAnswer: 
+          question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+          answer: "Cukup Mudah"
+          scene: "identitas diri" 
+    - "Sulit":
+      - player says neutral: Ada beberapa tantangan yang harus kami hadapi selmana pendaftaran. Propsesnya tidak selalu mulus dan kadang cukup membingungkan.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
+      - recordAnswer:
+          question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+          answer: "Sulit"
+          scene: "identitas diri"
+    - "Sangat Sulit":
+      - player says concerned: Prosesenya memang terasa berat. Banyak sekali kendala yang kami  hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
+      - recordAnswer:
+          question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
+          answer: "Sangat Sulit"
+          scene: "identitas diri"
+  - scene: kantorregistrasi 
+
+          
+
+
+
 
 
 endGame:
@@ -65,3 +115,5 @@ endGame:
     endGame: true
     text:
      - Created by
+
+     # expretion player: neutral, concerned, happy, proud, thinking,
