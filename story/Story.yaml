@@ -71,7 +71,7 @@ identitasScene:
           scene: "identitas diri"
     - "Mudah":
       - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
-      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
+      - researcher says neutral: Ba gus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Mudah"
@@ -91,13 +91,394 @@ identitasScene:
           answer: "Sulit"
           scene: "identitas diri"
     - "Sangat Sulit":
-      - player says concerned: Prosesenya memang terasa berat. Banyak sekali kendala yang kami  hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
+      - player says neutral: Prosesenya memang terasa berat. Banyak sekali kendala yang kami  hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Sulit"
           scene: "identitas diri"
   - scene: kantorregistrasi 
+
+kantorregistrasi:
+  - trackScene:
+      scene: "kantorregistrasi"
+  - show registration_office: WITH FADE CONTINUE
+  - player says neutral: Selamat datang diruang registrasi Sekolah Indonesia Jeddah. Sekarang mari kita check dokumen teman-teman.
+  - askQuestion:
+      question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang diperlukan: 1. Akta kelahiran, 2. Kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+      options: ["Sangat Mampu", "Mampu", "Cukup Mampu", "Sulit", "Sangat Sulit"]
+  - choice:
+    - "Sangat Mampu":
+      - player says happy: Alhamdulillah, semua dokumen sudah kami siapkan dari jauh jauh hari sehingga dokumen kami sudah lengkap.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sudah siap dengan semua dokumen yang diperlukan.
+      - recordAnswer:
+          question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang diperlukan: 1. Akta kelahiran, 2. Kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+          answer: "Sangat Mampu"
+          scene: "identitas diri"
+    - "Mampu":
+      - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
+      - researcher says neutral: Ba gus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
+      - recordAnswer:
+          question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah?berikut dokumen yang di perlukan: 1.Akta kelahiran, 2. kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+          answer: "Mampu"
+          scene: "identitas diri"
+    - "Cukup Mampu":
+      - player says happy: sebenrnya butuh persiapan dan kesabaran juuga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
+      - recordAnswer:
+          question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang diperlukan: 1. Akta kelahiran, 2. Kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+          answer: "Cukup Mampu"
+          scene: "identitas diri" 
+    - "Sulit":
+      - player says neutral: Ada beberapa tantangan yang harus kami hadapi selmana pendaftaran. Propsesnya tidak selalu mulus dan kadang cukup membingungkan.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda dalam memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang di perlukan: 1.Akta kelahiran, 2. kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+          answer: "Sulit"
+          scene: "identitas diri"
+    - "Sangat Sulit":
+      - player says neutral: Prosesenya memang terasa berat. Banyak sekali kendala yang kami  hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda dalam memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang di perlukan: 1.Akta kelahiran, 2. kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
+          answer: "Sangat Sulit"
+          scene: "kantorregistrasi"
+  - scene: refleksipengalamansekolah
+
+refleksipengalamansekolah:
+  - trackScene:
+      scene: "refleksipengalamansekolah"
+  - show taman_sekolah: WITH FADE CONTINUE 
+  - player says neutral: kadang aku berpikir, bagaimana ya kalau  aku bersekolah di tempat lain?
+  - askQuestion:
+      question: "Apakah Anda engalami kesulitan saat bersekolah ditempat lain, selain di Sekolah Indonesia Jeddah?"
+      options: ["Ya", "Tidak"]
+  - choice:
+    - "Ya":
+      - player says neutral: Iya, aku pernah mengalami kesulitan saat bersekolah di tempat lain. Ada beberapa tantangan yang harus aku hadapi.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
+      - recordAnswer:
+          question: "Apakah Anda mengalami kesulitan saat bersekolah ditempat lain, selain di Sekolah Indonesia Jeddah?"
+          answer: "Ya"
+          scene: "refleksipengalamansekolah"
+    - "Tidak":
+      - player says happy: Tidak, aku tidak mengalami kesulitan saat bersekolah di tempat lain. Semuanya berjalan lancar.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman sekolahmu di tempat lain positif.
+      - recordAnswer:
+          question: "Apakah Anda mengalami kesulitan saat bersekolah ditempat lain, selain di Sekolah Indonesia Jeddah?"
+          answer: "Tidak"
+          scene: "refleksipengalamansekolah"
+  - scene: alasanmemilihsijjikaiya
+
+alasanmemilihsijjikaiya:
+  - trackScene:
+      scene: "alasanmemilihsijjikaiya"
+  - show taman_sekolah: WITH FADE CONTINUE
+  - player says neutral: Aku masih ingat kenapa aku memilih Sekolah Indonesia Jeddah. Ada beberapa alasan yang membuatku yakin ini adalah tempat yang tepat.
+  - askQuestion:
+      question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+      options: ["Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International", "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International", "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolahArab atau International", "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional", "Untuk memudahkan studi lanjut di Indonesia", "Lainnya", "Saya tidak menjawab iya pada pertanyaan sebelumnya"]
+  - choice:
+    - "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional":
+      - player says neutral: Aku memilih Sij karena orangtuaku tidak mengizinkanku bersekolah di tempat lain.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:       
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional"
+          scene: "alasanmemilihsijjikaiya"
+    - "Untuk memudahkan studi lanjut di Indonesia":
+      - player says neutral: Aku memilih Sij karena aku ingin memudahkan studi lanjutku di Indonesia.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Untuk memudahkan studi lanjut di Indonesia"
+          scene: "alasanmemilihsijjikaiya"
+    - "Lainnya":  
+      - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - call TextInput: var otherReason
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: {otherReason}
+          scene: "alasanmemilihsijjikaiya"  
+    - "Saya tidak menjawab iya pada pertanyaan sebelumnya":
+      - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Saya tidak menjawab iya pada pertanyaan sebelumnya"
+          scene: "alasanmemilihsijjikaiya"
+  - scene: alasantetapmemilihsij
+
+alasantetapmemilihsij:
+  - trackScene:
+      scene: "alasantetapmemilihsij"
+  - show taman_sekolah: WITH FADE CONTINUE
+  - player says neutral: Sebenernya ada pilihan lain tapi aku tetap memilih SIJ karena...
+  - askQuestion:
+      question: "Jika tidak dan Anda tetap memilih Sekolah Indonesia Jeddah, apa alasan Anda?"
+      options: ["Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International", "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International", "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolahArab atau International", "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional", "Untuk memudahkan studi lanjut di Indonesia", "Lainnya", "Saya tidak menjawab iya pada pertanyaan sebelumnya"]
+  - choice:
+    - "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International":
+      - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International"
+          scene: "alasanmemilihsijjikaiya"
+    - "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional":
+      - player says neutral: Aku memilih Sij karena orangtuaku tidak mengizinkanku bersekolah di tempat lain.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:       
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional"
+          scene: "alasanmemilihsijjikaiya"
+    - "Untuk memudahkan studi lanjut di Indonesia":
+      - player says neutral: Aku memilih Sij karena aku ingin memudahkan studi lanjutku di Indonesia.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Untuk memudahkan studi lanjut di Indonesia"
+          scene: "alasanmemilihsijjikaiya"
+    - "Lainnya":  
+      - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - call TextInput: var otherReason
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: {otherReason}
+          scene: "alasanmemilihsijjikaiya"  
+    - "Saya tidak menjawab iya pada pertanyaan sebelumnya":
+      - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Saya tidak menjawab iya pada pertanyaan sebelumnya"
+          scene: "alasantetapmemilihsij"
+  - scene: tantanganfinansial
+
+tantanganfinansial:
+  - trackScene:
+      scene: "tantanganfinansial"
+  - show registration_office: WITH FADE CONTINUE
+  - player says neutral: Biaya sekolah ini selalu jadi pertimbangan kelaurga.
+  - askQuestion:
+      question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+      options: ["Sangat Mampu", "Mampu", "Cukup Mampu", "Sulit", "Sangat Sulit"]
+  - choice:
+    - "Sangat Mampu":
+      - player says happy: Alhamdulillah, kami sangat mampu membayar SPP dan biaya pendaftaran di Sij.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan finansial dalam membayar SPP dan biaya pendaftaran.
+      - recordAnswer:
+          question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+          answer: "Sangat Mampu"
+          scene: "tantanganfinansial"
+    - "Mampu":
+      - player says happy: Kami mampu membayar SPP dan biaya pendaftaran di Sij, meskipun harus mengatur keuangan dengan baik.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu Mampu dalam membayar SPP dan biaya pendaftaran.
+      - recordAnswer:
+          question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+          answer: "Mampu"
+          scene: "tantanganfinansial"
+    - "Cukup Mampu":
+      - player says neutral: Kami cukup mampu membayar SPP dan biaya pendaftaran, meskipun harus menghemat pengeluaran di tempat lain.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu cukup mampu dalam membayar SPP dan biaya pendaftaran.
+      - recordAnswer:
+          question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+          answer: "Cukup Mampu"
+          scene: "tantanganfinansial"
+    - "Sulit":
+      - player says neutral: Kami mengalami kesulitan dalam membayar SPP dan biaya pendaftaran. Kami harus mencari cara untuk mengatasi masalah ini.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+          answer: "Sulit"
+          scene: "tantanganfinansial" 
+    - "Sangat Sulit":
+      - player says neutral: Kami sangat kesulitan dalam membayar SPP dan biaya pendaftaran. Kami harus mencari cara untuk mengatasi masalah ini.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda membayar SPP dan biaya pendafatran/daftar ulang di Sekolah Indonesia Jeddah?"
+          answer: "Sangat Sulit"
+          scene: "tantanganfinansial"
+  - scene: kegiatanekstrakurikuler
+
+kegiatanekstrakurikuler:
+  - trackScene:
+      scene: "kegiatanekstrakurikuler"
+  - show lapangan: WITH FADE CONTINUE
+  - player says neutral: Wah, banyak sekali kegiatan menarik disini. Tapi bisa ngga ya aku ikut semua?
+  - askQuestion:
+      question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+      options: ["Sangat Mampu", "Mampu", "Cukup Mampu", "Kurang Mampu", "Tidak Mampu"]
+  - choice:
+    - "Sangat Mampu":
+      - player says happy: Alhamdulillah, aku sangat mampu mengikuti semua kegiatan ekstrakurikuler di Sij.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan dalam mengikuti kegiatan ekstrakurikuler.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+          answer: "Sangat Mampu"
+          scene: "kegiatanekstrakurikuler"
+    - "Mampu":
+      - player says happy: Aku mampu mengikuti kegiatan ekstrakurikuler di Sij, meskipun terbatas di beberapa aspek pilihan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu Mampu dalam mengikuti kegiatan ekstrakurikuler.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+          answer: "Mampu"
+          scene: "kegiatanekstrakurikuler"
+    - "Cukup Mampu":
+      - player says neutral: Aku cukup mampu mengikuti kegiatan ekstrakurikuler di Sij, meskipun terbatas di beberapa aspek pilihan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu cukup mampu dalam mengikuti kegiatan ekstrakurikuler.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+          answer: "Cukup Mampu"
+          scene: "kegiatanekstrakurikuler"
+    - "Kurang Mampu":
+      - player says neutral: Aku kurang mampu mengikuti kegiatan ekstrakurikuler di Sij, meskipun ada beberapa yang bisa aku ikuti.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+          answer: "Kurang Mampu"
+          scene: "kegiatanekstrakurikuler"
+    - "Tidak Mampu":
+      - player says neutral: Aku tidak mampu mengikuti kegiatan ekstrakurikuler di Sij, meskipun ada beberapa yang bisa aku ikuti.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti kegiatan ekstrakurikuler di Sekolah Indonesia Jeddah dalam aspe-aspek berikut: 1. Biaya 2. Waktu 3. Akses Transportasi"
+          answer: "Tidak Mampu"
+          scene: "kegiatanekstrakurikuler"    
+  - scene: kesempatanberkompitisi
+
+kesempatanberkompitisi:
+  - trackScene:
+      scene: "kesempatanberkompitisi"
+  - show papan_pengumuamnan: WITH FADE CONTINUE
+  - player says neutral: lomba lomba ini terlihat sangat menarik tapi apakah aku bisa mengikutinya?
+  - askQuestion:
+      question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+      options: ["Sangat Mampu", "Mampu", "Cukup Mampu", "Kurang Mampu", "Tidak Mampu"]
+  - choice:
+    - "Sangat Mampu":
+      - player says happy: Alhamdulillah, aku sangat mampu mengikuti semua lomba yang difasilitasi oleh Sij.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan dalam mengikuti lomba.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+          answer: "Sangat Mampu"
+          scene: "kesempatanberkompitisi"
+    - "Mampu":
+      - player says happy: Aku mampu mengikuti lomba yang difasilitasi oleh Sij, meskipun terbatas di beberapa aspek pilihan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu Mampu dalam mengikuti lomba.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+          answer: "Mampu"
+          scene: "kesempatanberkompitisi"
+    - "Cukup Mampu":
+      - player says neutral: Aku cukup mampu mengikuti lomba yang difasilitasi oleh Sij, meskipun terbatas di beberapa aspek pilihan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu cukup mampu dalam mengikuti lomba.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+          answer: "Cukup Mampu"
+          scene: "kesempatanberkompitisi"
+    - "Kurang Mampu":
+      - player says neutral: Aku kurang mampu mengikuti lomba yang difasilitasi oleh Sij, meskipun ada beberapa yang bisa aku ikuti.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+          answer: "Kurang Mampu"
+          scene: "kesempatanberkompitisi"
+    - "Tidak Mampu":
+      - player says neutral: Aku tidak mampu mengikuti lomba yang difasilitasi oleh Sij, meskipun ada beberapa yang bisa aku ikuti.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
+          answer: "Tidak Mampu"
+          scene: "kesempatanberkompitisi"
+    - scene: lombapuspresnas
+
+lombapuspresnas:
+  - trackScene:
+      scene: "lombapuspresnas"
+  - show ruang_komputer: WITH FADE CONTINUE
+  - player says neutral: Lomba Puspresnas sampai final di indonesia nih... wih impian banget!
+  - askQuestion:
+      question: "Dari aspek kelengkapan dokumen, apakah anda dapat mengikuti lomba-lomba Puspresnas hingga tahap final di indonesia?"
+      options: ["Ya", "Tidak"]
+  - choice:
+    - "Ya":
+      - player says happy: Alhamdulillah, aku bisa mengikuti lomba Puspresnas hingga tahap final di Indonesia.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan dalam mengikuti lomba Puspresnas.
+      - recordAnswer:
+          question: "Dari aspek kelengkapan dokumen, apakah anda dapat mengikuti lomba-lomba Puspresnas hingga tahap final di indonesia?"
+          answer: "Ya"
+          scene: "lombapuspresnas"
+    - "Tidak":
+      - player says neutral: Sayangnya, aku tidak bisa mengikuti lomba Puspresnas hingga tahap final di Indonesia karena kendala dokumen.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Dari aspek kelengkapan dokumen, apakah anda dapat mengikuti lomba-lomba Puspresnas hingga tahap final di indonesia?"
+          answer: "Tidak"
+          scene: "lombapuspresnas"
+  - scene: kegiatanbudayalokal
+
+kegiatanbudayalokal:
+  - trackScene:
+      scene: "kegiatanbudayalokal"
+  - show jeddah_season: WITH FADE CONTINUE
+  - player says neutral: Diluar sekolah juga ada banya kegiatan menarik. Bisa nggak ya akku ikut?
+  - askQuestion:
+      question: "Dari aspek dokumen, apakah anda bisa mengikuti lomba atau kegiatan budaya skala lokal (di dalam Jeddah) yang idselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+      options: ["Ya", "Tidak"]
+  - choice: 
+    - "Ya":
+      - player says happy: Alhamdulillah, aku bisa mengikuti lomba atau kegiatan budaya skala lokal di Jeddah.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan dalam mengikuti lomba atau kegiatan budaya lokal.
+      - recordAnswer:
+          question: "Dari aspek dokumen, apakah anda bisa mengikuti lomba atau kegiatan budaya skala lokal (di dalam Jeddah) yang diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+          answer: "Ya"
+          scene: "kegiatanbudayalokal"
+    - "Tidak":
+      - player says neutral: Sayangnya, aku tidak bisa mengikuti lomba atau kegiatan budaya skala lokal di Jeddah karena kendala dokumen.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Dari aspek dokumen, apakah anda bisa mengikuti lomba atau kegiatan budaya skala lokal (di dalam Jeddah) yang diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+          answer: "Tidak"
+          scene: "kegiatanbudayalokal"
+  - scene: 
 
 endGame:
   - researcher says neutral: Terima kasih telah bermain!
@@ -108,4 +489,4 @@ endGame:
     text:
      - Created by
 
-     # expretion player: neutral, concerned, happy, proud, thinking,
+     # expretion player: neutral, neutral, happy, proud, thinking,
