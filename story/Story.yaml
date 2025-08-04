@@ -478,7 +478,340 @@ kegiatanbudayalokal:
           question: "Dari aspek dokumen, apakah anda bisa mengikuti lomba atau kegiatan budaya skala lokal (di dalam Jeddah) yang diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
           answer: "Tidak"
           scene: "kegiatanbudayalokal"
-  - scene: 
+  - scene: kegiatanluarjeddah
+
+kegiatanluarjeddah:
+  - trackScene: 
+      scene: "kegiatanluarjeddah"
+  - show bandara: WITH FADE CONTINUE
+  - player says neutral: bagaimana kalau ada kegiatan di luar jeddah?
+  - askQuestion:
+      question: "Dari aspek dokumen, apakah Anda bisa mengikuti lomba atau kegiatan yang dilaksanakan di luar Jeddah dan diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+      options: ["Ya", "Tidak"]
+  - choice: 
+    - "Ya":
+      - player says happy: Alhamdulillah, aku bisa mengikuti lomba atau kegiatan yang dilaksanakan di luar Jeddah.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu tidak mengalami kesulitan dalam mengikuti lomba atau kegiatan di luar Jeddah.
+      - recordAnswer:
+          question: "Dari aspek dokumen, apakah Anda bisa mengikuti lomba atau kegiatan yang dilaksanakan di luar Jeddah dan diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+          answer: "Ya"
+          scene: "kegiatanluarjeddah"
+    - "Tidak":
+      - player says neutral: Sayangnya, aku tidak bisa mengikuti lomba atau kegiatan yang dilaksanakan di luar Jeddah karena kendala dokumen.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Dari aspek dokumen, apakah Anda bisa mengikuti lomba atau kegiatan yang dilaksanakan di luar Jeddah dan diselenggarakan oleh lembaga selain Sekolah Indonesia Jeddah?"
+          answer: "Tidak"
+          scene: "kegiatanluarjeddah"
+  - scene: maknadanbahasaindonesia
+
+maknadanbahasaindonesia:
+  - trackScene:
+      scene: "maknadanbahasaindonesia"
+  - show classroom: WITH FADE CONTINUE
+  - researcher says neutral: Seberapa penting sih bahasa indonesia untuk identitasku sebagai orang indonesia?
+  - askQuestion:
+      question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+      options: ["Sangat Penting", "Penting", "Cukup Penting", "Kurang Penting", "Tidak Penting"]
+  - choice: 
+    - "Sangat Penting":
+      - player says neutral: Bahasa indonesia Sangat sangat penting bagiku sebagai orang Indonesia. Ini adalah identitas kita.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia sangat penting dalam identitasmu.
+      - recordAnswer:
+          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          answer: "Sangat Penting"
+          scene: "maknadanbahasaindonesia"
+    - "Penting":
+      - player says neutral: Bahasa Indonesia penting bagiku sebagai orang Indonesia. Ini adalah bagian dari identitas kita.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia penting dalam identitasmu.
+      - recordAnswer:
+          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          answer: "Penting"
+          scene: "maknadanbahasaindonesia"
+    - "Cukup Penting":
+      - player says neutral: Bahasa Indonesia cukup penting bagiku sebagai orang Indonesia. Ini adalah bagian dari identitas kita, meskipun ada bahasa lain yang juga penting.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia cukup penting dalam identitasmu.
+      - recordAnswer: 
+          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          answer: "Cukup Penting"
+          scene: "maknadanbahasaindonesia"
+    - "Kurang Penting":
+      - player says neutral: Bahasa Indonesia kurang penting bagiku sebagai orang Indonesia. Ada bahasa lain yang lebih penting dalam identitasku.
+      - researcher says neutral: Terima kasih telah berbagi pendapatmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          answer: "Kurang Penting"
+          scene: "maknadanbahasaindonesia"
+    - "Tidak Penting":
+      - player says neutral: Bahasa Indonesia tidak penting bagiku sebagai orang Indonesia. Aku lebih mengutamakan bahasa lain dalam identitasku.
+      - researcher says neutral: Terima kasih telah berbagi pendapatmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          answer: "Tidak Penting"
+          scene: "maknadanbahasaindonesia"
+  - scene: penggunaaanbahasadisekolah
+
+penggunaaanbahasadisekolah:
+  - trackScene:
+      scene: "penggunaaanbahasadisekolah"
+  - show school_hallway: WITH FADE CONTINUE
+  - player says neutral: Di sekolah ini, kami menggunakan berbagai bahasa stergantung situasinya.
+  - askQuestion:
+      question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+      opstions: ["Sangat sering", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Sangat sering":
+      - player says happy: Aku sangat sering menggunakan bahasa Indonesia di sekolah. Ini adalah bahasa utama kami.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di sekolah.
+      - recordAnswer:
+          question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Sangat sering"
+          scene: "penggunaaanbahasadisekolah"
+    - "Sering":
+      - player says happy: Aku sering menggunakan bahasa Indonesia di sekolah, meskipun ada juga bahasa lain/asing yang digunakan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di sekolah.
+      - recordAnswer:
+          question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Sering"
+          scene: "penggunaaanbahasadisekolah"
+    - "Kadang-kadang":
+      - player says neutral: Aku kadang-kadang menggunakan bahasa Indonesia di sekolah, tergantung situasinya.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu kadang-kadang menggunakan bahasa Indonesia di sekolah.
+      - recordAnswer:
+          question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Kadang-kadang"
+          scene: "penggunaaanbahasadisekolah"
+    - "Jarang":
+      - player says neutral: Aku jarang menggunakan bahasa Indonesia di sekolah, lebih sering menggunakan bahasa lain atau asing.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Jarang"
+          scene: "penggunaaanbahasadisekolah"
+    - "Tidak Pernah":
+      - player says neutral: Aku tidak pernah menggunakan bahasa Indonesia di sekolah, lebih sering menggunakan bahasa lain atau asing.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa sering anda menggunakan bahasa berikut di sekolah: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Tidak Pernah"
+          scene: "penggunaaanbahasadisekolah"
+  - scene: penggunaanbahsadirumah
+
+penggunaanbahsadirumah:
+  - trackScene:
+      scene: "penggunaanbahsadirumah"
+  - show rumah: WITH FADE CONTINUE
+  - player says neutral: Di rumah, bahasa yang kami gunakan agak berbeda dengan di sekolah.
+  - askQuestion: 
+      question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+      options: ["Sangat sering", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Sangat sering":
+      - player says happy: Aku sangat sering menggunakan bahasa Indonesia di rumah. Ini adalah bahasa utama kami.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di rumah.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+          answer: "Sangat sering"
+          scene: "penggunaanbahsadirumah"
+    - "Sering":
+      - player says happy: Aku sering menggunakan bahasa Indonesia di rumah, meskipun ada juga bahasa lain/asing yang digunakan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di rumah.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+          answer: "Sering"
+          scene: "penggunaanbahsadirumah"
+    - "Kadang-kadang":
+      - player says neutral: Aku kadang-kadang menggunakan bahasa Indonesia di rumah, tergantung situasinya.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu kadang-kadang menggunakan bahasa Indonesia di rumah.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+          answer: "Kadang-kadang"
+          scene: "penggunaanbahsadirumah"
+    - "Jarang":
+      - player says neutral: Aku jarang menggunakan bahasa Indonesia di rumah, lebih sering menggunakan bahasa lain atau asing.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+          answer: "Jarang"
+          scene: "penggunaanbahsadirumah" 
+    - "Tidak Pernah":
+      - player says neutral: Aku tidak pernah menggunakan bahasa Indonesia di rumah, lebih sering menggunakan bahasa lain atau asing.
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
+          answer: "Tidak Pernah"
+          scene: "penggunaanbahsadirumah"
+  - scene: alasanmemilihsijjikaiya
+scene: bahasadilingkungansosial
+
+bahasadilingkungansosial:
+  - trackScene:
+      scene: "bahasadilingkungansosial"
+  - show mall: WITH FADE CONTINUE
+  - player says neutral: Di luar rumah  dan sekolah, aku harus beradaptasi dengan lingkungan yang lebih beragam
+  - askQuestion:
+      question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+      options: ["Sangat sering", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Sangat sering":
+      - player says happy: Aku sangat sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam. Ini adalah bahasa utama kami.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Sangat sering"
+          scene: "bahasadilingkungansosial"
+    - "Sering":
+      - player says happy: Aku sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam, meskipun ada juga bahasa lain/asing yang digunakan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Sering"
+          scene: "bahasadilingkungansosial"
+    - "Kadang-kadang":
+      - player says neutral: Aku kadang-kadang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam, tergantung situasinya.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu kadang-kadang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
+      - recordAnswer:
+          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Kadang-kadang"
+          scene: "bahasadilingkungansosial"
+    - "Jarang":
+      - player says neutral: Aku jarang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Jarang"
+          scene: "bahasadilingkungansosial"
+    - "Tidak Pernah":
+      - player says neutral: Aku tidak pernah menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:   
+          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          answer: "Tidak Pernah"
+          scene: "bahasadilingkungansosial"
+  - scene: tradisisalim
+
+tradisisalim:
+  - trackScene:
+      scene: "tradisisalim"
+  - show salim: WITH FADE CONTINUE
+  - player says neutral: Tradisi mencium tangan atau salim ini kan budaya indonesia yang menjadi turunan dari ajaran agama dan norma sosial yang berlaku di masyarakat.
+  - askQuestion: 
+      question:  "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+      options: ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice: 
+    - "Selalu":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu selalu mencium tangan setiap kali bertemu dengan orang yang lebih tua atau ddihormati.
+      - recordAnswer:
+         question: "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+         answer: "Selalu"
+         scene: "tradisisalim"
+    - "Sering":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. senang mendengar kamu sering mencium tangan dalam sebagian besar pertemuan, terutama pada momen penting atau resmi.
+      - recordAnswer:
+          question: "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+          answer: "Sering"
+          scene: "tradisisalim"
+    - "kadang-kadang":
+      - researcher says neutral: "Terima kasih sudah berbagi pengalamanmu {TextInputName_player}."
+      - recordAnswer:
+          question: "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+          answer: "Kadang-kadang"
+          scene: "tradisisalim"
+    - "Jarang":
+      - researcher says neutral: "Terimakasih sudah berbagi pengalamanmu {TextInputName_player}. Kami menghargai kejujuranmu."
+      - recordAnswer:
+          question: "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+          answer: "Jarang"
+          scene: "tradisisalim"
+    - "Tidak Pernah":
+      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu."
+      - recordAnswer:
+          question: "Budaya mencium tangan atau salim adalah tradisi di indonesia yang merupakan bentuk penghormatan dan kesopanan, terutama kepada orang yang lebih tua atau dihortmati. Seberapa sering Anda mencium tangan orang yang lebih tua atau orang yang dihormati?"
+          answer: "Tidak Pernah"
+          scene: "tradisisalim"
+  - scene: sikapmembungkuk
+
+sikapmembungkuk:
+  - trackScene:
+      scene: "sikapmembungkuk"
+  - show acara_sekolah: WITH FADE CONTINUE
+  - player says neutral: membungkuk atau menundukkan kepala saat melewati orang yang lebih tua. Ini juga bagian dari sopan santun indonesia.
+  - askQuestion:
+      question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+      options: ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Selalu":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu selalu membungkuk atau menundukkan kepala, terlepas dari apakah orang yang lebih tua sedang duduk atau berdiri.
+      - recordAnswer:
+          question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+          answer: "Selalu"
+          scene: "sikapmembungkuk"
+    - "Sering":
+      - researcher syas neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering membungkuk atau menundukkan kepala, saat menyadari keberadaan orang yang lebih tua di sekitarmu.
+      - recordAnswer:
+          question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+          answer: "Sering"
+          scene: "sikapmembungkuk"
+    - "Kadang-kadang":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. kami menghargai kejujuranmu bahwa kamu hanya membungkuk atau menundukkan kepala ketika orang yang lebih tua sedang duduk di bawah.
+      - recordAnswer:
+          question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+          answer: "Kadang-kadang"
+          scene: "sikapmembungkuk"
+    - "Jarang":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami sangat menghargai pendapatmu bahwa kamu terbiasa lewat tanpa menunuduk atau pun membungkuk atau menundukkan kepala, kecuali saat diberikan peringatan.
+      - recordAnswer:
+          question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+          answer: "Jarang"
+          scene: "sikapmembungkuk" 
+    - "Tidak Pernah":
+      - researcher says neutral: Terima kasih telah berbagi pendapatmu, {TextInputName_player}. Kami sangat menghargai pendapatmu bahwa kamu tidak terbiasa membungkuk atau menundukan kepala ketika melewati orang yang lebih tua meski pun sudah di ingatkan.
+      - recorAnswer:
+          question: "membungkuk atau menundukkan kepala adalah salah satu bentuk ekspresi penghormatan dan kesopanan terhadap orang yang lebih tua atau dihormati. Seberapa sering Anda berjalan membungkuk atau menundukkan kepala saat melewati orang yang lebih tua atau orang yang dihormati?"
+          answer: "Tidak Pernah"
+          scene: "sikapmembungkuk"
+  - scene: bahasasopan
+
+bahasasopan:
+  - trackscene:
+      scene: "bahasasopan"
+  - show school_hallway: WITH FADE CONTINUE
+  - player says neutral: Cara berbicara dengan orang yang lebih tua merupakan sebagian cerminan dari karakterku.
+  - askQuestion:
+     question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
+     options: ["Selalu menggunakan bahasa sopan", "Sering menggunakan bahsa sopan", "Kadang sopan kadang tidak", "Jarang memperhatikan kesopanan", "Tidak pernah memedulikan kesopanan"]
+  - choice:
+    - "Selalu menggunakan bahsa sopan":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu selalu menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
+      - recordAnswer:
+          question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
+          answer: "Selalu menggunakan bahasa sopan"
+          scene: "bahasasopan"
+    - "Sering menggunakan bahsa sopan":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
+      - recordAnswer:
+          question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
+          answer: "Sering menggunakan bahsa sopan"
+          scene: "bahasasopan"
+    - "Kadang sopan kadang tidak":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu bahwa kamu kadang-kadang menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
+      - recordAnswer:
+          question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
+          answer: "Kadang sopan kadang tidak"
+          scene: "bahasasopan"
+    - "Jarang memperhatikan kesopanan":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami sangat menghargai pendapatmu bahwa kamu jarang memperhatikan kesopanan saat berbicara dengan orang yang lebih tua atau dihormati.
+      - recordAnswer:
+          question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
+          answer: "Jarang memperhatikan kesopanan"
+          scene: "bahasasopan"  
+  - scene: sikaptolongmenolong
+sikaptolongmenolong:
+
+
+
+
+
 
 endGame:
   - researcher says neutral: Terima kasih telah bermain!
