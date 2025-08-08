@@ -18,6 +18,7 @@ backgrounds:
   papan_pengumuamnan: assets/backgrounds/papan_pengumuman.png
   ruang_komputer: assets/backgrounds/ruang_komputer.png
   salim: assets/backgrounds/salim.png
+  membawa_barang: assets/backgrounds/membawa_barang.png
 
 characters:
   ahmad:
@@ -36,15 +37,15 @@ characters:
     displayName: Player
     speechColour: "#f0a500"
     looks:
-      sma_female_concerned: assets/player/sma_female_concerned.png
-      sma_female_happy: assets/player/sma_female_happy.png
-      sma_female_neutral: assets/player/sma_female_neutral.png
-      sma_female_proud: assets/player/sma_female_proud.png
-      sma_female_thinking: assets/player/sma_female_thinking.png
-      smp_male_happy: assets/player/smp_male_happy.png
-      SMP male concerned: assets/player/SMP_male_concerned.png
-      SMP male proud: assets/player/SMP male proud.png
-      SMP male thinking: assets/player/SMP male thinking.png
+      sma_female_concerned: assets/characters/player/sma_female_concerned.png
+      sma_female_happy: assets/characters/player/sma_female_happy.png
+      sma_female_neutral: assets/characters/player/sma_female_neutral.png
+      sma_female_proud: assets/characters/player/sma_female_proud.png
+      sma_female_thinking: assets/characters/player/sma_female_thinking.png
+      smp_male_happy: assets/characters/player/smp_male_happy.png
+      SMP male concerned: assets/characters/player/SMP_male_concerned.png
+      SMP male proud: assets/characters/player/SMP male proud.png
+      SMP male thinking: assets/characters/player/SMP male thinking.png
       SMP male neutral: assets/player/SMP male neutral.png
       SMP_female happy: assets/player/SMP_female_happy.jpg
       SMP_female concerned: assets/player/SMP_female_concerned.jpg

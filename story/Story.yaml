@@ -177,42 +177,42 @@ alasanmemilihsijjikaiya:
   - player says neutral: Aku masih ingat kenapa aku memilih Sekolah Indonesia Jeddah. Ada beberapa alasan yang membuatku yakin ini adalah tempat yang tepat.
   - askQuestion:
       question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-      options: ["Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International", "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International", "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolahArab atau International", "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional", "Untuk memudahkan studi lanjut di Indonesia", "Lainnya", "Saya tidak menjawab iya pada pertanyaan sebelumnya"]
+      options: ["Tidak memiliki identitas", "Kurangnya biaya", "Tidak menguasai bahasa asing", "Tidak mendapatkan izin ortu","Memudahkan studi lanjut di Indonesia", "Lainnya", "Pertanyaan sebelumnya tidak menjawab iya"]
   - choice:
-    - "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International":
+    - "Tidak memiliki identitas":
       - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International":
+    - "Kurangnya biaya":
       - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International":
+    - "Tidak menguasai bahasa asing":
       - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional":
+    - "Tidak menguasai bahasa asing":
       - player says neutral: Aku memilih Sij karena orangtuaku tidak mengizinkanku bersekolah di tempat lain.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:       
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional"
           scene: "alasanmemilihsijjikaiya"
-    - "Untuk memudahkan studi lanjut di Indonesia":
+    - "Memudahkan studi lanjut di Indonesia":
       - player says neutral: Aku memilih Sij karena aku ingin memudahkan studi lanjutku di Indonesia.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Untuk memudahkan studi lanjut di Indonesia"
+          answer: "Memudahkan studi lanjut di Indonesia"
           scene: "alasanmemilihsijjikaiya"
     - "Lainnya":  
       - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
@@ -222,12 +222,12 @@ alasanmemilihsijjikaiya:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: {otherReason}
           scene: "alasanmemilihsijjikaiya"  
-    - "Saya tidak menjawab iya pada pertanyaan sebelumnya":
+    - "Pertanyaan sebelumnya tidak menjawab iya":
       - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer: 
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Saya tidak menjawab iya pada pertanyaan sebelumnya"
+          answer: "Pertanyaan sebelumnya tidak menjawab iya"
           scene: "alasanmemilihsijjikaiya"
   - scene: alasantetapmemilihsij
 
@@ -238,42 +238,42 @@ alasantetapmemilihsij:
   - player says neutral: Sebenernya ada pilihan lain tapi aku tetap memilih SIJ karena...
   - askQuestion:
       question: "Jika tidak dan Anda tetap memilih Sekolah Indonesia Jeddah, apa alasan Anda?"
-      options: ["Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International", "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International", "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolahArab atau International", "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional", "Untuk memudahkan studi lanjut di Indonesia", "Lainnya", "Saya tidak menjawab iya pada pertanyaan sebelumnya"]
+      options: ["Tidak memiliki identitas", "Kurangnya biaya", "Tidak menguasai bahasa asing", "Tidak mendapatkan izin ortu","Memudahkan studi lanjut di Indonesia", "Lainnya", "Pertanyaan sebelumnya tidak menjawab tidak"]
   - choice:
-    - "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International":
+    - "Tidak memiliki identitas":
       - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International"
+          answer: "Tidak memiliki identitas"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International":
+    - "Tidak memiliki identita":
       - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International"
+          answer: "Tidak memiliki identita"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International":
+    - "Tidak menguasai bahasa asing":
       - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International"
+          answer: "Tidak menguasai bahasa asing"
           scene: "alasanmemilihsijjikaiya"
-    - "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional":
+    - "Tidak mendapatkan izin ortu":
       - player says neutral: Aku memilih Sij karena orangtuaku tidak mengizinkanku bersekolah di tempat lain.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:       
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional"
+          answer: "Tidak mendapatkan izin ortu"
           scene: "alasanmemilihsijjikaiya"
-    - "Untuk memudahkan studi lanjut di Indonesia":
+    - "Memudahkan studi lanjut di Indonesia":
       - player says neutral: Aku memilih Sij karena aku ingin memudahkan studi lanjutku di Indonesia.
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Untuk memudahkan studi lanjut di Indonesia"
+          answer: "Memudahkan studi lanjut di Indonesia"
           scene: "alasanmemilihsijjikaiya"
     - "Lainnya":  
       - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
@@ -283,7 +283,7 @@ alasantetapmemilihsij:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: {otherReason}
           scene: "alasanmemilihsijjikaiya"  
-    - "Saya tidak menjawab iya pada pertanyaan sebelumnya":
+    - "Pertanyaan sebelumnya tidak menjawab tidak":
       - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer: 
@@ -806,15 +806,220 @@ bahasasopan:
           answer: "Jarang memperhatikan kesopanan"
           scene: "bahasasopan"  
   - scene: sikaptolongmenolong
+
 sikaptolongmenolong:
+  - trackScene: 
+     scene: "sikaptolongmenolong"
+  - show school_hallway: WITH FADE CONTINUE
+  - player says neutral: Melihat orang tua kesusahan hati nurani ku merasa berkata harus membantu.
+  - askQuestion:
+      question: "Seberapa sering Anda membantu ketika melihat orang tua sedang membawa barang berat?"
+      options: ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Selalu":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang sekali mendengar bahwa kamu selalu langsung menawarkan bantuan setiap kali melihat orang tua membawa barang baerat.
+      - recordAnswer:
+          question: "Seberapa sering Anda membantu ketika melihat orang tua sedang membawa barang berat?"
+          answer: "Selalu"
+          scene: "sikaptolongmenolong"
+    - "Sering":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. senang sekali mendengar bahwa kamu sering membantunya, terutama jika mereka terlihat sangat kesulitan.
+      - recordAnswer:
+           question: "Seberapa sering Anda membantu ketika melihat orang tua sedang membawa barang berat?"
+           answer: "Sering"
+           scene: "sikaptolongmenolong"
+    - "kadang-kadang":
+      - researcher says neutral: Terimakasih telah berbagi pengalamnmu {TextInputName_player}. bahwa terkadang membantu hanya dalam situasi tertentu.
+      - recordAnswer:
+           question: "Seberapa sering Anda membantu ketika melihat orang tua sedang membawa barang berat?"
+           answer: "kadang-kadang"
+           scene: "sikaptolongmenolong"
+    - "Jarang":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa Jarang memperhatikan atau menawarkan bantuan.
+      - recordAnswer:
+           question: "Seberapa sering Anda membantu ketika melihat orang tua sedang membawa barang berat?"
+           answer: "Jarang"
+           scene: "sikaptolongmenolong"
+      "Tidak Pernah":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa tidak pernah menawarkan bantuan dalam situasi tersebut.
+  - scene: kepeduliansosial
 
+kepeduliansosial:
+  - trackScene:
+     scene: "kepeduliansosial"
+  - show taman_sekolah: WITH FADE CONTINUE
+  - player says neutral: Melihat teman atau orang lain kesulitan. Apakah aku harus diminta menunggu dulu?
+  - askQuestion:
+      question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+      options: ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
+  - choice:
+    - "Selalu": 
+      - researcher says neutral: Bagus sekali {TextInputName_player} selalu dengan insiatif sendiri langsung membantu tanpa perlu diminta.
+      - recordAnswer:
+           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+           answer: "Selalu"
+           scene: "kepeduliansosial"
+    - "Sering":
+      - researcher says neutral: Bagus sekali {TextInputName_player} Sering membantu meskipun tidak selalu secara spontan.
+      - recordAnswer:
+           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+           answer: "Sering"
+           scene: "kepeduliansosial"
+    - "Kadang-kadang":
+      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa kadang-kadang membantu jika merasa mampu."
+      - recordAnswer:
+           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+           answer: "Kadang-kadang"
+           scene: "Kepeduliansosial"
+    - "Jarang":
+      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa jarang dan biasanya menunggu sampai ada permintaan bantuan.
+      - recordAnswer: 
+           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+           answer: "Jarang"
+           scene: "Kepeduliansosial"
+    - "Tidak pernah":
+      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa tidak pernah membantu teman atau orang lain yang sedang kesulitan.
+      - recordAnswer:
+           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+           answer: "Tidak Pernah"
+           scene: "Kepeduliansosial"
+    - scene: "Kebiasaanmakan"
+  
+Kebiasaanmakan:
+  - trackScene:
+      scene: "Kebiasaanmakan"
+  - show meja_makan: WITH FADE CONTINUE
+  - player says neutral: "Makanan termasuk cerminan identitas budaya bukan ya?"
+  - askQuestion:
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan
+      options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
+  - choice:
+    - "Makanan Indonesia":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}."
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+        answer: "Makanan Indoensia"
+        scene: "Kebiasaanmakan"
+    - "Makanan Arab":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+        answer: "Makanan Arab"
+        scene: "Kebiasaanmakan"
+    - "Makanan Western":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+        answer: "Makanan Western"
+        scene: "Kebiasaanmakan"
+    - scene: "kebiasaanmakan1"
+    
+Kebiasaanmakan1:
+  - trackScene:
+      scene: "Kebiasaanmakan1"
+  - show meja_makan: WITH FADE CONTINUE
+  - askQuestion:
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang
+      options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
+  - choice:
+    - "Makanan Indonesia":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}."
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
+        answer: "Makanan Indoensia"
+        scene: "Kebiasaanmakan1"
+    - "Makanan Arab":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
+        answer: "Makanan Arab"
+        scene: "Kebiasaanmakan1"
+    - "Makanan Western":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
+        answer: "Makanan Western"
+        scene: "Kebiasaanmakan1"
+    - scene: "kebiasaanmakan2"
 
+Kebiasaanmakan2:
+  - trackScene:
+      scene: "Kebiasaanmakan2"
+  - show meja_makan: WITH FADE CONTINUE
+  - player says neutral: "Makanan termasuk cerminan identitas budaya kita bukan ya?"
+  - askQuestion:
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam
+      options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
+  - choice:
+    - "Makanan Indonesia":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}."
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
+        answer: "Makanan Indoensia"
+        scene: "Kebiasaanmakan2"
+    - "Makanan Arab":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
+        answer: "Makanan Arab"
+        scene: "Kebiasaanmakan2"
+    - "Makanan Western":
+    - researcher says neutral: "Bagus sekali {TextInputName_player}
+    - recordAnswer:
+        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
+        answer: "Makanan Western"
+        scene: "Kebiasaanmakan2"
+    - scene: "kebanggaanbudaya"
 
-
-
+kebanggaanbudaya:
+  - trackScene:
+      scene: "kebanggaanbudaya"
+  - show acara_sekolah: WITH FADE CONTINUE
+  - player says neutral: baju tradisional indonesia? seberapa bangga ya aku memakainya?
+  - askQuestion: 
+      question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+      options: ["Sangat bangga", "Bangga", "Biasa saja", "Kurang bangga", "Tidak bangga"]
+  - choice: 
+    - "Sangat bangga":
+      - researcher says neutral: bagus sekali {TextInputName_player} sangat bangga menggunakan pakaian tradisional indonesia di sekolah maupun di luar sekolah
+      - recordAnswer: 
+          question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+          answer: "Sangat bangga"
+          scene: "kebanggaanbudaya"
+    - "Bangga":
+      - researcher says neutral: Bagus sekali {TextInputName_player} bangga menggunakan pakaian tradisional indonesia di sekolah maupun di luar sekolah
+      - recordAnswer:
+          question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+          answer: "bangga"
+          scene: "Kebangganbudaya"
+    - "Biasa saja":
+      - researcher says neutral: Terima kasih{TextInputName_player} kami sangat menghargai pendapatmu.
+      - recordAnswer:
+          question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+          answer: "Biasa saja"
+          scene: "Kebanggaanbudaya"
+    - "Kurang bangga":
+      - researcher says neutral: Terima kasih {TextInputName_player} kami sangat menghargai pendapatmu
+      - recordAnswer: 
+          question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+          answer: "Kurang bangga"
+          scene: "Kebanggaanbudaya"
+    - "Tidak bangga":
+      - researcher says neutral: Terima kasih {TextInputName_player} kami sangat menghargai pendapatmu
+      - recordAnswer:
+          question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
+          answer: "Tidak bangga"
+          scene: "Kebanggaanbudaya"
+  - scene: "endGame"
 
 endGame:
-  - researcher says neutral: Terima kasih telah bermain!
+  - trackScene:
+      scene: "endGame"
+  - show sijsunset: WITH FADE CONTINUED
+  - researcher says neutral: Terima kasih {TextInputName_player} atas perjalanan yang  laur biasa ini
+  - researcher says neutral: Setiap jawaban yang Anda berikan sangat membantu kami memahami kompleksitas identitas anak muda indonesia di arab Saudi
+  - researcher says neutral: Pengalaman Anda sangat berharga untuk penelitian ini. Semoga perjalanan pencarian Anda terus berlanjut dengan penuh makna.
+  - player says neutral: Pwrjalanan ini membuatku lebih memahami diriku sendiri. Ternyata identitasku itu bukan sesuatu yang hitam putih, tapi penuh warna dan nuansa.
   - call DataCollection: name sendSessionData
   - hide ALL
   - effect ROLLINGCREDITS:
