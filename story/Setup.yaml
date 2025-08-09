@@ -20,6 +20,8 @@ backgrounds:
   salim: assets/backgrounds/salim.png
   membawa_barang: assets/backgrounds/membawa_barang.png
 
+  
+
 characters:
   ahmad:
     displayName: Ahmad
