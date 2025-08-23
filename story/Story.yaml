@@ -5,7 +5,7 @@ start:
   - researcher says neutral: Perkenalkan, saya Dr. Sari. Saat ini saya sedang melakukan penelitian tentang pengalaman anak muda Indonesia di Arab Saudi.
   - researcher says neutral: Cerita dan pengalaman kalian sangat berarti. Lewat kisah kalian, kami ingin lebih memahami bagaimana berbagai identitas bisa terbentuk.
   - researcher says neutral: Nantinya, kita akan menjelajahi bersama berbagai aspek kehidupan teman-teman selama tinggal di Jeddah lewat pengalaman interaktif ini.
-  - researcher says neutral: Tenang saja, semua jawaban teman-teman pasti dijaga kerahasiaannya dan hanya akan digunakan untuk keperluan penelitian yang penting.
+  - researcher says neutral: Tenang saja, semua jawaban teman-teman pasti dijaga kerahasiaannya dan hanya akan digunakan untuk keperluan penelitian yang kami.
   - wait: 300
   - researcher says neutral: Sebelum kita mulai, saya ingin tahu sedikit tentang kalian. Pertama-tama, apa nama kalian?
   - call TextInput: name player Nama
@@ -19,7 +19,7 @@ start:
       options: ["Perempuan", "Laki-laki"]
   - choice:
     - "Perempuan": # TODO: choose a better answer
-      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai peg rempuan!
+      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai perempuan!
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
           answer: "Perempuan"
@@ -51,10 +51,10 @@ start:
   - researcher says neutral: Terima kasih, nomor {phoneNumber} sudah terdaftar. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
   - researcher says: Mari kita mulai permainannya!
   - scene: identitasScene
-
+#Scene1 identitas diri 
 identitasScene:
   - trackScene:
-      scene: "identitas"
+      scene: "identitasScene"
   - show sij_gedung: WITH FADE CONTINUE
   - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjlanan menemukan siapa diriku sebenernya.
   - player says neutral: bagaimana ya rasanya waktu itu? Aku masih inget pengalaman mendaftar di sekolah indonesia jeddah....
@@ -68,37 +68,37 @@ identitasScene:
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Mudah"
-          scene: "identitas diri"
+          scene: "identitasScene"
     - "Mudah":
       - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
-      - researcher says neutral: Ba gus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Mudah"
-          scene: "identitas diri"
+          scene: "identitasScene"
     - "Cukup Mudah":
-      - player says happy: sebenrnya butuh persiapan dan kesabaran juuga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
+      - player says happy: sebenernya butuh persiapan dan kesabaran juga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
       - recordAnswer: 
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Cukup Mudah"
-          scene: "identitas diri" 
+          scene: "identitasScene" 
     - "Sulit":
-      - player says neutral: Ada beberapa tantangan yang harus kami hadapi selmana pendaftaran. Propsesnya tidak selalu mulus dan kadang cukup membingungkan.
+      - player says neutral: Ada beberapa tantangan yang harus kami hadapi selama pendaftaran. Prosesnya tidak selalu mulus dan kadang cukup membingungkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sulit"
-          scene: "identitas diri"
+          scene: "identitasScene"
     - "Sangat Sulit":
-      - player says neutral: Prosesenya memang terasa berat. Banyak sekali kendala yang kami  hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
+      - player says neutral: Prosesenya memang terasa berat. Banyak sekali kendala yang kami hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Sulit"
-          scene: "identitas diri"
+          scene: "identitasScene"
   - scene: kantorregistrasi 
-
+#Scene2 kantor registrasi.  
 kantorregistrasi:
   - trackScene:
       scene: "kantorregistrasi"
@@ -114,21 +114,21 @@ kantorregistrasi:
       - recordAnswer:
           question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang diperlukan: 1. Akta kelahiran, 2. Kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
           answer: "Sangat Mampu"
-          scene: "identitas diri"
+          scene: "kantorregistrasi"
     - "Mampu":
       - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
-      - researcher says neutral: Ba gus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
       - recordAnswer:
           question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah?berikut dokumen yang di perlukan: 1.Akta kelahiran, 2. kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
           answer: "Mampu"
-          scene: "identitas diri"
+          scene: "kantorregistrasi"
     - "Cukup Mampu":
-      - player says happy: sebenrnya butuh persiapan dan kesabaran juuga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
+      - player says happy: sebenernya butuh persiapan dan kesabaran juga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
       - recordAnswer:
           question: "Seberapa mampu anda untuk memenuhi kelengkapan dokumen yang disyaratkan untuk pendaftaran di Sekolah Indonesia Jeddah? Berikut dokumen yang diperlukan: 1. Akta kelahiran, 2. Kartu Keluarga, 3. Iqamah orangtua, 4. Iqamah anak."
           answer: "Cukup Mampu"
-          scene: "identitas diri" 
+          scene: "kantorregistrasi" 
     - "Sulit":
       - player says neutral: Ada beberapa tantangan yang harus kami hadapi selmana pendaftaran. Propsesnya tidak selalu mulus dan kadang cukup membingungkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
@@ -144,14 +144,14 @@ kantorregistrasi:
           answer: "Sangat Sulit"
           scene: "kantorregistrasi"
   - scene: refleksipengalamansekolah
-
+#Scene3 refleksi pengalaman sekolah
 refleksipengalamansekolah:
   - trackScene:
       scene: "refleksipengalamansekolah"
   - show taman_sekolah: WITH FADE CONTINUE 
-  - player says neutral: kadang aku berpikir, bagaimana ya kalau  aku bersekolah di tempat lain?
+  - player says neutral: kadang aku berpikir, bagaimana ya kalau aku bersekolah di tempat lain?
   - askQuestion:
-      question: "Apakah Anda engalami kesulitan saat bersekolah ditempat lain, selain di Sekolah Indonesia Jeddah?"
+      question: "Apakah Anda mengalami kesulitan saat bersekolah ditempat lain, selain di Sekolah Indonesia Jeddah?"
       options: ["Ya", "Tidak"]
   - choice:
     - "Ya":
@@ -169,7 +169,7 @@ refleksipengalamansekolah:
           answer: "Tidak"
           scene: "refleksipengalamansekolah"
   - scene: alasanmemilihsijjikaiya
-
+#SCENE 4 ALASAN MEMILIH SIJ JIKA IYA
 alasanmemilihsijjikaiya:
   - trackScene:
       scene: "alasanmemilihsijjikaiya"
@@ -180,82 +180,21 @@ alasanmemilihsijjikaiya:
       options: ["Tidak memiliki identitas", "Kurangnya biaya", "Tidak menguasai bahasa asing", "Tidak mendapatkan izin ortu","Memudahkan studi lanjut di Indonesia", "Lainnya", "Pertanyaan sebelumnya tidak menjawab iya"]
   - choice:
     - "Tidak memiliki identitas":
-      - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer:
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International"
-          scene: "alasanmemilihsijjikaiya"
-    - "Kurangnya biaya":
-      - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer:
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International"
-          scene: "alasanmemilihsijjikaiya"
-    - "Tidak menguasai bahasa asing":
-      - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer:
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International"
-          scene: "alasanmemilihsijjikaiya"
-    - "Tidak menguasai bahasa asing":
-      - player says neutral: Aku memilih Sij karena orangtuaku tidak mengizinkanku bersekolah di tempat lain.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer:       
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional"
-          scene: "alasanmemilihsijjikaiya"
-    - "Memudahkan studi lanjut di Indonesia":
-      - player says neutral: Aku memilih Sij karena aku ingin memudahkan studi lanjutku di Indonesia.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer:
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Memudahkan studi lanjut di Indonesia"
-          scene: "alasanmemilihsijjikaiya"
-    - "Lainnya":  
-      - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - call TextInput: var otherReason
-      - recordAnswer:
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: {otherReason}
-          scene: "alasanmemilihsijjikaiya"  
-    - "Pertanyaan sebelumnya tidak menjawab iya":
-      - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
-      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
-      - recordAnswer: 
-          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Pertanyaan sebelumnya tidak menjawab iya"
-          scene: "alasanmemilihsijjikaiya"
-  - scene: alasantetapmemilihsij
-
-alasantetapmemilihsij:
-  - trackScene:
-      scene: "alasantetapmemilihsij"
-  - show taman_sekolah: WITH FADE CONTINUE
-  - player says neutral: Sebenernya ada pilihan lain tapi aku tetap memilih SIJ karena...
-  - askQuestion:
-      question: "Jika tidak dan Anda tetap memilih Sekolah Indonesia Jeddah, apa alasan Anda?"
-      options: ["Tidak memiliki identitas", "Kurangnya biaya", "Tidak menguasai bahasa asing", "Tidak mendapatkan izin ortu","Memudahkan studi lanjut di Indonesia", "Lainnya", "Pertanyaan sebelumnya tidak menjawab tidak"]
-  - choice:
-    - "Tidak memiliki identitas":
-      - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
+      - player says neutral: Aku memilih Sij "Karena tidak memiliki dokumen yang dibutuhkan (seperti paspor/Iqamah) untuk bersekolah di sekolah Arab atau International
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: "Tidak memiliki identitas"
           scene: "alasanmemilihsijjikaiya"
-    - "Tidak memiliki identita":
-      - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
+    - "Kurangnya biaya":
+      - player says neutral: Aku memilih Sij karena tidak memiliki biaya yang cukup untuk bersekolah di sekolah Arab atau International
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Tidak memiliki identita"
+          answer: "Kurangnya biaya"
           scene: "alasanmemilihsijjikaiya"
     - "Tidak menguasai bahasa asing":
-      - player says neutral: Aku memilih Sij karena aku tidak menguasai bahasa asing yang diperlukan untuk bersekolah di tempat lain.
+      - player says neutral: Aku memilih Sij Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
@@ -283,15 +222,76 @@ alasantetapmemilihsij:
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
           answer: {otherReason}
           scene: "alasanmemilihsijjikaiya"  
-    - "Pertanyaan sebelumnya tidak menjawab tidak":
+    - "Pertanyaan sebelumnya tidak menjawab iya":
       - player says neutral: Aku tidak menjawab iya pada pertanyaan sebelumnya
       - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer: 
           question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
-          answer: "Saya tidak menjawab iya pada pertanyaan sebelumnya"
+          answer: "Pertanyaan sebelumnya tidak menjawab iya"
+          scene: "alasanmemilihsijjikaiya"
+  - scene: alasantetapmemilihsij
+#SCENE5 ALSAN TETAP MEMILIH SIJ
+alasantetapmemilihsij:
+  - trackScene:
+      scene: "alasantetapmemilihsij"
+  - show taman_sekolah: WITH FADE CONTINUE
+  - player says neutral: Sebenernya ada pilihan lain tapi aku tetap memilih SIJ karena...
+  - askQuestion:
+      question: "Jika tidak dan Anda tetap memilih Sekolah Indonesia Jeddah, apa alasan Anda?"
+      options: ["Tidak memiliki identitas", "Kurangnya biaya", "Tidak menguasai bahasa asing", "Tidak mendapatkan izin ortu","Memudahkan studi lanjut di Indonesia", "Lainnya", "Pertanyaan sebelumnya tidak menjawab tidak"]
+  - choice:
+    - "Tidak memiliki identitas":
+      - player says neutral: Aku memilih Sij karena aku tidak memiliki dokumen yang diperlukan untuk bersekolah di sekolah Arab atau Internasional.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Tidak memiliki identitas"
+          scene: "alasantetapmemilihsij"
+    - "Kurangnya biaya":
+      - player says neutral: Aku memilih Sij karena biaya sekolah di tempat lain terlalu tinggi dan aku tidak mampu membayarnya.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Kurangnya biaya"
+          scene: "alasantetapmemilihsij"
+    - "Tidak menguasai bahasa asing":
+      - player says neutral: Aku memilih Sij Karena tidak menguasai bahasa asing (Arab atau Inggris) yang dibutuhkan untuk bersekolah di sekolah Arab atau International
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Tidak menguasai bahasa asing"
+          scene: "alasantetapmemilihsij"
+    - "Tidak mendapatkan izin ortu":
+      - player says neutral: Aku memilih Sij Karena tidak mendapatkan izin dari orangtua untuk bersekolah di sekolah Arab atau Internasional
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:       
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Tidak mendapatkan izin ortu"
+          scene: "alasantetapmemilihsij"
+    - "Memudahkan studi lanjut di Indonesia":
+      - player says neutral: Aku memilih Sij karena Untuk memudahkan studi lanjut di Indonesia
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Memudahkan studi lanjut di Indonesia"
+          scene: "alasantetapmemilihsij"
+    - "Lainnya":  
+      - player says neutral: Aku memilih Sij karena alasan lain yang tidak disebutkan di atas.
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - call TextInput: var otherReason
+      - recordAnswer:
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: {otherReason}
+          scene: "alasantetapmemilihsij"  
+    - "Pertanyaan sebelumnya tidak menjawab tidak":
+      - player says neutral: Aku tidak menjawab tidak pada pertanyaan sebelumnya
+      - researcher says neutral: Terima kasih telah berbagi alasanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
+      - recordAnswer: 
+          question: "Apa alasan utama Anda memilih Sekolah Indonesia Jeddah?"
+          answer: "Pertanyaan sebelumnya tidak menjawab tidak"
           scene: "alasantetapmemilihsij"
   - scene: tantanganfinansial
-
+#SCENE 6 TANTANGAN FINANSIAL
 tantanganfinansial:
   - trackScene:
       scene: "tantanganfinansial"
@@ -337,7 +337,7 @@ tantanganfinansial:
           answer: "Sangat Sulit"
           scene: "tantanganfinansial"
   - scene: kegiatanekstrakurikuler
-
+#SCENE 7 KEGIATAN EKSTRAKURIKULER
 kegiatanekstrakurikuler:
   - trackScene:
       scene: "kegiatanekstrakurikuler"
@@ -383,12 +383,12 @@ kegiatanekstrakurikuler:
           answer: "Tidak Mampu"
           scene: "kegiatanekstrakurikuler"    
   - scene: kesempatanberkompitisi
-
+#SCENE 8 KESEMPATAN BERKOMPETISI
 kesempatanberkompitisi:
   - trackScene:
       scene: "kesempatanberkompitisi"
   - show papan_pengumuamnan: WITH FADE CONTINUE
-  - player says neutral: lomba lomba ini terlihat sangat menarik tapi apakah aku bisa mengikutinya?
+  - player says neutral: lomba- lomba ini terlihat sangat menarik tapi apakah aku bisa mengikutinya?
   - askQuestion:
       question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
       options: ["Sangat Mampu", "Mampu", "Cukup Mampu", "Kurang Mampu", "Tidak Mampu"]
@@ -429,7 +429,7 @@ kesempatanberkompitisi:
           answer: "Tidak Mampu"
           scene: "kesempatanberkompitisi"
     - scene: lombapuspresnas
-
+#SCENE 9 LOMBA PUSPRESNAS 
 lombapuspresnas:
   - trackScene:
       scene: "lombapuspresnas"
@@ -454,7 +454,7 @@ lombapuspresnas:
           answer: "Tidak"
           scene: "lombapuspresnas"
   - scene: kegiatanbudayalokal
-
+#SCENE 10 KEGIATAN BUDAYA LOKAL 
 kegiatanbudayalokal:
   - trackScene:
       scene: "kegiatanbudayalokal"
@@ -479,7 +479,7 @@ kegiatanbudayalokal:
           answer: "Tidak"
           scene: "kegiatanbudayalokal"
   - scene: kegiatanluarjeddah
-
+#SCENE 11 KEGIATAN LUAR JEDDAH
 kegiatanluarjeddah:
   - trackScene: 
       scene: "kegiatanluarjeddah"
@@ -504,53 +504,53 @@ kegiatanluarjeddah:
           answer: "Tidak"
           scene: "kegiatanluarjeddah"
   - scene: maknadanbahasaindonesia
-
+#SCENE 12 MAKNA DAN BAHASA INDONESIA 
 maknadanbahasaindonesia:
   - trackScene:
       scene: "maknadanbahasaindonesia"
   - show classroom: WITH FADE CONTINUE
   - researcher says neutral: Seberapa penting sih bahasa indonesia untuk identitasku sebagai orang indonesia?
   - askQuestion:
-      question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+      question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
       options: ["Sangat Penting", "Penting", "Cukup Penting", "Kurang Penting", "Tidak Penting"]
   - choice: 
     - "Sangat Penting":
-      - player says neutral: Bahasa indonesia Sangat sangat penting bagiku sebagai orang Indonesia. Ini adalah identitas kita.
-      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia sangat penting dalam identitasmu.
+      - player says neutral: Bahasa indonesia Sangat penting bagiku sebagai orang Indonesia. Ini adalah identitas kita.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia Sangat penting dalam identitasmu.
       - recordAnswer:
-          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
           answer: "Sangat Penting"
           scene: "maknadanbahasaindonesia"
     - "Penting":
       - player says neutral: Bahasa Indonesia penting bagiku sebagai orang Indonesia. Ini adalah bagian dari identitas kita.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia penting dalam identitasmu.
       - recordAnswer:
-          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
           answer: "Penting"
           scene: "maknadanbahasaindonesia"
     - "Cukup Penting":
       - player says neutral: Bahasa Indonesia cukup penting bagiku sebagai orang Indonesia. Ini adalah bagian dari identitas kita, meskipun ada bahasa lain yang juga penting.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu menganggap bahasa Indonesia cukup penting dalam identitasmu.
       - recordAnswer: 
-          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
           answer: "Cukup Penting"
           scene: "maknadanbahasaindonesia"
     - "Kurang Penting":
       - player says neutral: Bahasa Indonesia kurang penting bagiku sebagai orang Indonesia. Ada bahasa lain yang lebih penting dalam identitasku.
       - researcher says neutral: Terima kasih telah berbagi pendapatmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
-          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
           answer: "Kurang Penting"
           scene: "maknadanbahasaindonesia"
     - "Tidak Penting":
       - player says neutral: Bahasa Indonesia tidak penting bagiku sebagai orang Indonesia. Aku lebih mengutamakan bahasa lain dalam identitasku.
       - researcher says neutral: Terima kasih telah berbagi pendapatmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:
-          question: "Seberapa penting kemampuan bahsa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
+          question: "Seberapa penting kemampuan bahasa indonesia dalam menunjukan bahwa anda adalah orang indonesia?"
           answer: "Tidak Penting"
           scene: "maknadanbahasaindonesia"
   - scene: penggunaaanbahasadisekolah
-
+#SCENE 13 PENGGUNAAN BAHSA DI SEKOLAH
 penggunaaanbahasadisekolah:
   - trackScene:
       scene: "penggunaaanbahasadisekolah"
@@ -596,7 +596,7 @@ penggunaaanbahasadisekolah:
           answer: "Tidak Pernah"
           scene: "penggunaaanbahasadisekolah"
   - scene: penggunaanbahsadirumah
-
+#SCENE 14 PENGGUNAAN BAHASA DI RUMAH
 penggunaanbahsadirumah:
   - trackScene:
       scene: "penggunaanbahsadirumah"
@@ -643,53 +643,53 @@ penggunaanbahsadirumah:
           scene: "penggunaanbahsadirumah"
   - scene: alasanmemilihsijjikaiya
 scene: bahasadilingkungansosial
-
+#SCENE 15 BAHASA DI LINGKUNGAN SOSIAL
 bahasadilingkungansosial:
   - trackScene:
       scene: "bahasadilingkungansosial"
   - show mall: WITH FADE CONTINUE
   - player says neutral: Di luar rumah  dan sekolah, aku harus beradaptasi dengan lingkungan yang lebih beragam
   - askQuestion:
-      question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+      question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
       options: ["Sangat sering", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
   - choice:
     - "Sangat sering":
       - player says happy: Aku sangat sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam. Ini adalah bahasa utama kami.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
       - recordAnswer:
-          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
           answer: "Sangat sering"
           scene: "bahasadilingkungansosial"
     - "Sering":
       - player says happy: Aku sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam, meskipun ada juga bahasa lain/asing yang digunakan.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
       - recordAnswer:
-          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
           answer: "Sering"
           scene: "bahasadilingkungansosial"
     - "Kadang-kadang":
       - player says neutral: Aku kadang-kadang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam, tergantung situasinya.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu kadang-kadang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam.
       - recordAnswer:
-          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
           answer: "Kadang-kadang"
           scene: "bahasadilingkungansosial"
     - "Jarang":
       - player says neutral: Aku jarang menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer: 
-          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
           answer: "Jarang"
           scene: "bahasadilingkungansosial"
     - "Tidak Pernah":
       - player says neutral: Aku tidak pernah menggunakan bahasa Indonesia di luar lingkungan yang lebih beragam
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu.
       - recordAnswer:   
-          question: "Seberapa sering Anda menggunakan bahsa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
+          question: "Seberapa sering Anda menggunakan bahasa berikut di luar lingkungan yang lebih beragam?: 1. Indonesia 2. Arab 3. Inggris 4. Lainnya"
           answer: "Tidak Pernah"
           scene: "bahasadilingkungansosial"
   - scene: tradisisalim
-
+#SCENE 16 TRADISI SALIM
 tradisisalim:
   - trackScene:
       scene: "tradisisalim"
@@ -730,7 +730,7 @@ tradisisalim:
           answer: "Tidak Pernah"
           scene: "tradisisalim"
   - scene: sikapmembungkuk
-
+#SCENE 17 SIKAP MEMBUNGKUK
 sikapmembungkuk:
   - trackScene:
       scene: "sikapmembungkuk"
@@ -771,7 +771,7 @@ sikapmembungkuk:
           answer: "Tidak Pernah"
           scene: "sikapmembungkuk"
   - scene: bahasasopan
-
+#SCENE 18 BAHASA SOPAN
 bahasasopan:
   - trackscene:
       scene: "bahasasopan"
@@ -779,19 +779,19 @@ bahasasopan:
   - player says neutral: Cara berbicara dengan orang yang lebih tua merupakan sebagian cerminan dari karakterku.
   - askQuestion:
      question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
-     options: ["Selalu menggunakan bahasa sopan", "Sering menggunakan bahsa sopan", "Kadang sopan kadang tidak", "Jarang memperhatikan kesopanan", "Tidak pernah memedulikan kesopanan"]
+     options: ["Selalu menggunakan bahasa sopan", "Sering menggunakan bahasa sopan", "Kadang sopan kadang tidak", "Jarang memperhatikan kesopanan", "Tidak pernah memedulikan kesopanan"]
   - choice:
-    - "Selalu menggunakan bahsa sopan":
+    - "Selalu menggunakan bahasa sopan":
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu selalu menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
       - recordAnswer:
           question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
           answer: "Selalu menggunakan bahasa sopan"
           scene: "bahasasopan"
-    - "Sering menggunakan bahsa sopan":
+    - "Sering menggunakan bahasa sopan":
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa kamu sering menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
       - recordAnswer:
           question: "Ketika sedang berinteraksi bersama orang yang lebih tua atau orang yang dihormati, Bagaiman sikap yang sebaiknya Anda terapkan saat berbicara?"
-          answer: "Sering menggunakan bahsa sopan"
+          answer: "Sering menggunakan bahasa sopan"
           scene: "bahasasopan"
     - "Kadang sopan kadang tidak":
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai kejujuranmu bahwa kamu kadang-kadang menggunakan bahasa sopan saat berbicara dengan orang yang lebih tua atau dihormati.
@@ -806,7 +806,7 @@ bahasasopan:
           answer: "Jarang memperhatikan kesopanan"
           scene: "bahasasopan"  
   - scene: sikaptolongmenolong
-
+#SCENE 19 SIKAP TOLONG MENOLONG
 sikaptolongmenolong:
   - trackScene: 
      scene: "sikaptolongmenolong"
@@ -843,7 +843,7 @@ sikaptolongmenolong:
       "Tidak Pernah":
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa tidak pernah menawarkan bantuan dalam situasi tersebut.
   - scene: kepeduliansosial
-
+#SCENE 20 KEPEDULIAN SOSIAL 
 kepeduliansosial:
   - trackScene:
      scene: "kepeduliansosial"
@@ -884,7 +884,7 @@ kepeduliansosial:
            answer: "Tidak Pernah"
            scene: "Kepeduliansosial"
     - scene: "Kebiasaanmakan"
-  
+#SCENE 21 KEBIASAAN MAKAN  
 Kebiasaanmakan:
   - trackScene:
       scene: "Kebiasaanmakan"
@@ -913,7 +913,7 @@ Kebiasaanmakan:
         answer: "Makanan Western"
         scene: "Kebiasaanmakan"
     - scene: "kebiasaanmakan1"
-    
+#SCENE 22 KEBIASAAN MAKAN 1  
 Kebiasaanmakan1:
   - trackScene:
       scene: "Kebiasaanmakan1"
@@ -941,7 +941,7 @@ Kebiasaanmakan1:
         answer: "Makanan Western"
         scene: "Kebiasaanmakan1"
     - scene: "kebiasaanmakan2"
-
+#SCENE 22 KEBIASAAN MAKAN 2
 Kebiasaanmakan2:
   - trackScene:
       scene: "Kebiasaanmakan2"
@@ -970,7 +970,7 @@ Kebiasaanmakan2:
         answer: "Makanan Western"
         scene: "Kebiasaanmakan2"
     - scene: "kebanggaanbudaya"
-
+#SCENE 23 KEBANGGAN BUDAYA 
 kebanggaanbudaya:
   - trackScene:
       scene: "kebanggaanbudaya"
@@ -1013,6 +1013,7 @@ kebanggaanbudaya:
   - scene: "endGame"
 
 endGame:
+  - researcher says neutral: Terima kasih telah bermain!
   - trackScene:
       scene: "endGame"
   - show sijsunset: WITH FADE CONTINUED
@@ -1023,8 +1024,3 @@ endGame:
   - call DataCollection: name sendSessionData
   - hide ALL
   - effect ROLLINGCREDITS:
-    endGame: true
-    text:
-     - Created by
-
-     # expretion player: neutral, neutral, happy, proud, thinking,
