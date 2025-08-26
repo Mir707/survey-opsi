@@ -20,8 +20,6 @@ backgrounds:
   salim: assets/backgrounds/salim.png
   membawa_barang: assets/backgrounds/membawa_barang.png
 
-  
-
 characters:
   ahmad:
     displayName: Ahmad
@@ -35,33 +33,54 @@ characters:
     looks:
       neutral: assets/characters/researcher_neutral.png
 
+   # Keep original player for TextInput compatibility
   player:
     displayName: Player
     speechColour: "#f0a500"
     looks:
-      sma_female_concerned: assets/characters/player/sma_female_concerned.png
-      sma_female_happy: assets/characters/player/sma_female_happy.png
+      # Default/fallback looks (will use SMA female as default)
+      neutral: assets/characters/player/sma_female_neutral.png
+      happy: assets/characters/player/sma_female_happy.png
+      concerned: assets/characters/player/sma_female_concerned.png
+      thinking: assets/characters/player/sma_female_thinking.png
+      proud: assets/characters/player/sma_female_proud.png
+      
+      # SMA Female looks
       sma_female_neutral: assets/characters/player/sma_female_neutral.png
-      sma_female_proud: assets/characters/player/sma_female_proud.png
+      sma_female_happy: assets/characters/player/sma_female_happy.png
+      sma_female_concerned: assets/characters/player/sma_female_concerned.png
       sma_female_thinking: assets/characters/player/sma_female_thinking.png
+      sma_female_proud: assets/characters/player/sma_female_proud.png
+      
+      # SMA Male looks
+      sma_male_neutral: assets/characters/player/sma_male_neutral.png
+      sma_male_happy: assets/characters/player/sma_male_happy.png
+      sma_male_concerned: assets/characters/player/sma_male_concerned.png
+      sma_male_thinking: assets/characters/player/sma_male_thinking.png
+      sma_male_proud: assets/characters/player/sma_male_proud.png
+      
+      # SMP Female looks
+      smp_female_neutral: assets/characters/player/smp_female_neutral.png 
+      smp_female_happy: assets/characters/player/smp_female_happy.png
+      smp_female_concerned: assets/characters/player/smp_female_concerned.png
+      smp_female_thinking: assets/characters/player/smp_female_thinking.png
+      smp_female_proud: assets/characters/player/smp_female_proud.png
+      
+      # SMP Male looks
+      smp_male_neutral: assets/characters/player/smp_male_neutral.png
       smp_male_happy: assets/characters/player/smp_male_happy.png
-      SMP male concerned: assets/characters/player/SMP_male_concerned.png
-      SMP male proud: assets/characters/player/SMP male proud.png
-      SMP male thinking: assets/characters/player/SMP male thinking.png
-      SMP male neutral: assets/player/SMP male neutral.png
-      SMP_female happy: assets/player/SMP_female_happy.jpg
-      SMP_female concerned: assets/player/SMP_female_concerned.jpg
-      SMP_female proud: assets/player/SMP_female_proud.jpg
-      SMP_female thinking: assets/player/SMP_female_thinking.jpg
+      smp_male_concerned: assets/characters/player/smp_male_concerned.png
+      smp_male_thinking: assets/characters/player/smp_male_thinking.png
+      smp_male_proud: assets/characters/player/smp_male_proud.png
 
 cgs:
   phone1: assets/objects/phone1.png
   phone2: assets/objects/phone2.png
 
 music:
-  home: assets/audio/home.mp3
+  home: assets/audio/home_bgm.mp3
   original_bgm: assets/audio/original_bgm.mp3
-  Sekolha: assets/audio/Sekolha.mp3
+  sekolah: assets/audio/sekolah.mp3
   
 extra:
   spritesheets:

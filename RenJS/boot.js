@@ -8,7 +8,48 @@ class DataCollectionPlugin extends RenJS.Plugin {
     this.lastChoiceTime = 0;
     this.choiceDelay = 2000; // 2 seconds delay between recording choices
     this.recordedAnswers = new Set(); // Track what we've already recorded
-    console.log('📊 DataCollectionPlugin (RenJS) initialized with URL:', this.googleScriptUrl);
+
+      // Store all answers for the session
+      this.sessionData = {
+        playerName: '',
+        phoneNumber: '',
+        playerGender: '',
+        playerLevel: '',
+        answers: {}, // Will store answers by question number
+        startTime: new Date().toISOString(),
+        endTime: null
+      };
+      
+      // Question mapping - maps scenes to question numbers
+      this.questionNumbers = {
+        'intro': 0, // Gender and level questions
+        'identitasScene': 1,
+        'kantorregistrasi': 2,
+        'refleksipengalamansekolah': 3,
+        'alasanmemilihsijjikaiya': 4,
+        'alasantetapmemilihsij': 5,
+        'tantanganfinansial': 6,
+        'kegiatanekstrakurikuler': 7,
+        'kesempatanberkompitisi': 8,
+        'lombapuspresnas': 9,
+        'kegiatanbudayalokal': 10,
+        'kegiatanluarjeddah': 11,
+        'maknadanbahasaindonesia': 12,
+        'penggunaaanbahasadisekolah': 13,
+        'penggunaanbahsadirumah': 14,
+        'bahasadilingkungansosial': 15,
+        'tradisisalim': 16,
+        'sikapmembungkuk': 17,
+        'bahasasopan': 18,
+        'sikaptolongmenolong': 19,
+        'kepeduliansosial': 20,
+        'Kebiasaanmakan': 21,
+        'Kebiasaanmakan1': 22,
+        'Kebiasaanmakan2': 23,
+        'kebanggaanbudaya': 24,
+      };
+
+      console.log('📊 DataCollectionPlugin (RenJS) initialized with URL:', this.googleScriptUrl);
   }
 
   onInit() {
@@ -17,10 +58,16 @@ class DataCollectionPlugin extends RenJS.Plugin {
 
   onStart() {
     console.log('🎮 DataCollectionPlugin onStart called');
+    this.sessionData.startTime = new Date().toISOString();
   }
 
   onCall(params) {
     console.log('📞 onCall triggered with params:', params);
+
+     // Handle sendSessionData call
+     if (params && params.name === 'sendSessionData') {
+      this.sendSessionData();
+    }
   }
 
   onAction(action) {
@@ -35,9 +82,45 @@ class DataCollectionPlugin extends RenJS.Plugin {
     // Look for trackScene actions
     this.searchForTrackScene(action, 'action');
 
+    // Update player info when variables change
+    this.updatePlayerInfo();
+
     // Check for any custom action types
     if (action.actionType && !['play', 'show', 'say', 'wait', 'choice', 'scene', 'hide', 'effect', 'askQuestion'].includes(action.actionType)) {
       console.log('🔍 Unknown action type detected:', action.actionType, action);
+    }
+  }
+
+   // Update player information from game variables
+   updatePlayerInfo() {
+    try {
+      const vars = this.game.managers.logic.vars;
+      
+      // Update player name
+      if (vars.TextInputName_player && !this.sessionData.playerName) {
+        this.sessionData.playerName = vars.TextInputName_player;
+        console.log('👤 Player name captured:', this.sessionData.playerName);
+      }
+      
+      // Update phone number
+      if (vars.phoneNumber && !this.sessionData.phoneNumber) {
+        this.sessionData.phoneNumber = vars.phoneNumber;
+        console.log('📱 Phone number captured:', this.sessionData.phoneNumber);
+      }
+      
+      // Update gender
+      if (vars.playerGender && !this.sessionData.playerGender) {
+        this.sessionData.playerGender = vars.playerGender;
+        console.log('⚧ Gender captured:', this.sessionData.playerGender);
+      }
+      
+      // Update level
+      if (vars.playerLevel && !this.sessionData.playerLevel) {
+        this.sessionData.playerLevel = vars.playerLevel;
+        console.log('🎓 Level captured:', this.sessionData.playerLevel);
+      }
+    } catch (error) {
+      console.error('❌ Error updating player info:', error);
     }
   }
 
@@ -181,15 +264,60 @@ class DataCollectionPlugin extends RenJS.Plugin {
     }
   }
 
+  // Similar function to get the player's phone number
+  getPlayerPhoneNumber() {
+    try {
+      const vars = this.game.managers.logic.vars;
+
+      // Check for TextInput plugin phone number format
+      if (vars.phoneNumber) {
+        return vars.phoneNumber;
+      }
+
+      // Check for other possible variable names
+      if (vars.TextInputName_phoneNumber) {
+        return vars.TextInputName_phoneNumber;
+      }
+
+      if (vars.playerPhoneNumber) {
+        return vars.playerPhoneNumber;
+      }
+
+      if (vars.phone) {
+        return vars.phone;
+      }
+
+      // Try to get from player character config if available
+      if (
+        this.game.managers.character.characters.player &&
+        this.game.managers.character.characters.player.config.phoneNumber
+      ) {
+        const phone = this.game.managers.character.characters.player.config.phoneNumber;
+        if (phone) {
+          return phone;
+        }
+      }
+
+      console.log('🤷 No phone number found in variables:', Object.keys(vars));
+      return '';
+    } catch (error) {
+      console.error('❌ Error getting player phone number:', error);
+      return '';
+    }
+  }
+
   recordAnswer(params) {
     console.log('📊 Recording selected answer:', params);
 
-    // Get the player's name
+    // Get the player's name and phone number
     const playerName = this.getPlayerName();
+    const phoneNumber = this.getPlayerPhoneNumber();
     console.log('👤 Player name found:', playerName);
+    console.log('📱 Player phone number found:', phoneNumber);
     
     const data = {
       playerName: playerName,
+      phoneNumber: phoneNumber,
       scene: params.scene || 'unknown',
       question: params.question || 'no question',
       answer: params.answer || 'no answer',

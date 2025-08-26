@@ -11,21 +11,22 @@ start:
   - call TextInput: name player Nama
   - researcher says neutral: Terima kasih, {TextInputName_player}. Nama yang indah!
   - researcher says neutral: Sekarang, saya ingin tahu lebih banyak tentang kalian. Apa jenis kelamin kalian?
-  # TODO: cari cara untuk lembar persetujuan
   - trackScene:
       scene: "intro"
   - askQuestion:
       question: "Apa jenis kelamin kalian?"
       options: ["Perempuan", "Laki-laki"]
   - choice:
-    - "Perempuan": # TODO: choose a better answer
-      - researcher says: Terima kasih, {TextInputName_player} anda terdetksi sebagai perempuan!
+    - "Perempuan":
+      - researcher says: Terima kasih, {TextInputName_player} anda terdeteksi sebagai perempuan!
+      - set playerGender: "female"
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
           answer: "Perempuan"
           playerName: {TextInputName_player}
     - "Laki-laki":
       - researcher says: Terima kasih, {TextInputName_player} anda terdeteksi sebagai laki-laki!
+      - set playerGender: "male"
       - recordAnswer:
           question: "Apa jenis kelamin kalian?"
           answer: "Laki-laki"
@@ -36,54 +37,65 @@ start:
   - choice:
     - "SMA":
       - researcher says: Ah, kalian dari SMA! Bagus sekali.
+      - set playerLevel: "SMA"
       - recordAnswer:
           question: "Kalian dari jenjang apa?"
           answer: "SMA"
           playerName: {TextInputName_player}
     - "SMP":
       - researcher says: Ah, kalian dari SMP! Bagus sekali.
+      - set playerLevel: "SMP"
       - recordAnswer:
           question: "Kalian dari jenjang apa?"
           answer: "SMP"
           playerName: {TextInputName_player}
-  - researcher says neutral: untuk berkomunikasi lebih dekat dengan kalian, saya ingin tahu berapa nomor whatsaap kalian?
+  - researcher says neutral: untuk berkomunikasi lebih dekat dengan kalian, saya ingin tahu berapa nomor whatsapp kalian?
   - call TextInput: var phoneNumber
-  - researcher says neutral: Terima kasih, nomor {phoneNumber} sudah terdaftar. Saya akan menguhubungi kalian nanti untuk memberikan info lebih lanjut.
+  - researcher says neutral: Terima kasih, nomor {phoneNumber} sudah terdaftar. Saya akan menghubungi kalian nanti untuk memberikan info lebih lanjut.
   - researcher says: Mari kita mulai permainannya!
+  - show researcher: WITH FADE CONTINUE
   - scene: identitasScene
+  
 #Scene1 identitas diri 
 identitasScene:
   - trackScene:
       scene: "identitasScene"
   - show sij_gedung: WITH FADE CONTINUE
-  - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjlanan menemukan siapa diriku sebenernya.
-  - player says neutral: bagaimana ya rasanya waktu itu? Aku masih inget pengalaman mendaftar di sekolah indonesia jeddah....
+  # Use the new PlayerDisplay plugin to show player with neutral emotion
+  - execute: showPlayer('neutral')
+  - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjalanan menemukan siapa diriku sebenarnya.
+  - player says neutral: bagaimana ya rasanya waktu itu? Aku masih ingat pengalaman mendaftar di sekolah indonesia jeddah....
   - askQuestion:
       question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
       options: ["Sangat Mudah", "Mudah", "Cukup Mudah", "Sulit", "Sangat Sulit"]  
   - choice:
     - "Sangat Mudah":
-      - player says happy: Alahmdulillah proses pendaftarannya sangat lancar. Staf sekolah ramah sekali dan semuanya terorganisir dengan baik.
+      # Show happy emotion using the plugin
+      - execute: showPlayer('happy')
+      - player says happy: Alhamdulillah proses pendaftarannya sangat lancar. Staf sekolah ramah sekali dan semuanya terorganisir dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij sangat positif.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Mudah"
           scene: "identitasScene"
     - "Mudah":
-      - player says happy: prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
+      - execute: showPlayer('happy')
+      - player says happy: Prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Mudah"
           scene: "identitasScene"
     - "Cukup Mudah":
-      - player says happy: sebenernya butuh persiapan dan kesabaran juga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
+      - execute: showPlayer('thinking')
+      - player says happy: Sebenarnya butuh persiapan dan kesabaran juga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
       - recordAnswer: 
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Cukup Mudah"
           scene: "identitasScene" 
     - "Sulit":
+      - execute: showPlayer('concerned')
       - player says neutral: Ada beberapa tantangan yang harus kami hadapi selama pendaftaran. Prosesnya tidak selalu mulus dan kadang cukup membingungkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
@@ -91,13 +103,15 @@ identitasScene:
           answer: "Sulit"
           scene: "identitasScene"
     - "Sangat Sulit":
-      - player says neutral: Prosesenya memang terasa berat. Banyak sekali kendala yang kami hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
+      - execute: showPlayer('concerned')
+      - player says concerned: Prosesnya memang terasa berat. Banyak sekali kendala yang kami hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
           question: "Bagaimana proses pendaftaran anda di sekolah indonesia jeddah/Sij?"
           answer: "Sangat Sulit"
           scene: "identitasScene"
   - scene: kantorregistrasi 
+
 #Scene2 kantor registrasi.  
 kantorregistrasi:
   - trackScene:
@@ -144,6 +158,7 @@ kantorregistrasi:
           answer: "Sangat Sulit"
           scene: "kantorregistrasi"
   - scene: refleksipengalamansekolah
+
 #Scene3 refleksi pengalaman sekolah
 refleksipengalamansekolah:
   - trackScene:
@@ -169,6 +184,7 @@ refleksipengalamansekolah:
           answer: "Tidak"
           scene: "refleksipengalamansekolah"
   - scene: alasanmemilihsijjikaiya
+
 #SCENE 4 ALASAN MEMILIH SIJ JIKA IYA
 alasanmemilihsijjikaiya:
   - trackScene:
@@ -230,6 +246,7 @@ alasanmemilihsijjikaiya:
           answer: "Pertanyaan sebelumnya tidak menjawab iya"
           scene: "alasanmemilihsijjikaiya"
   - scene: alasantetapmemilihsij
+
 #SCENE5 ALSAN TETAP MEMILIH SIJ
 alasantetapmemilihsij:
   - trackScene:
@@ -291,6 +308,7 @@ alasantetapmemilihsij:
           answer: "Pertanyaan sebelumnya tidak menjawab tidak"
           scene: "alasantetapmemilihsij"
   - scene: tantanganfinansial
+
 #SCENE 6 TANTANGAN FINANSIAL
 tantanganfinansial:
   - trackScene:
@@ -337,6 +355,7 @@ tantanganfinansial:
           answer: "Sangat Sulit"
           scene: "tantanganfinansial"
   - scene: kegiatanekstrakurikuler
+
 #SCENE 7 KEGIATAN EKSTRAKURIKULER
 kegiatanekstrakurikuler:
   - trackScene:
@@ -383,6 +402,7 @@ kegiatanekstrakurikuler:
           answer: "Tidak Mampu"
           scene: "kegiatanekstrakurikuler"    
   - scene: kesempatanberkompitisi
+
 #SCENE 8 KESEMPATAN BERKOMPETISI
 kesempatanberkompitisi:
   - trackScene:
@@ -429,6 +449,7 @@ kesempatanberkompitisi:
           answer: "Tidak Mampu"
           scene: "kesempatanberkompitisi"
     - scene: lombapuspresnas
+
 #SCENE 9 LOMBA PUSPRESNAS 
 lombapuspresnas:
   - trackScene:
@@ -454,6 +475,7 @@ lombapuspresnas:
           answer: "Tidak"
           scene: "lombapuspresnas"
   - scene: kegiatanbudayalokal
+
 #SCENE 10 KEGIATAN BUDAYA LOKAL 
 kegiatanbudayalokal:
   - trackScene:
@@ -479,6 +501,7 @@ kegiatanbudayalokal:
           answer: "Tidak"
           scene: "kegiatanbudayalokal"
   - scene: kegiatanluarjeddah
+
 #SCENE 11 KEGIATAN LUAR JEDDAH
 kegiatanluarjeddah:
   - trackScene: 
@@ -504,6 +527,7 @@ kegiatanluarjeddah:
           answer: "Tidak"
           scene: "kegiatanluarjeddah"
   - scene: maknadanbahasaindonesia
+
 #SCENE 12 MAKNA DAN BAHASA INDONESIA 
 maknadanbahasaindonesia:
   - trackScene:
@@ -550,6 +574,7 @@ maknadanbahasaindonesia:
           answer: "Tidak Penting"
           scene: "maknadanbahasaindonesia"
   - scene: penggunaaanbahasadisekolah
+
 #SCENE 13 PENGGUNAAN BAHSA DI SEKOLAH
 penggunaaanbahasadisekolah:
   - trackScene:
@@ -596,6 +621,7 @@ penggunaaanbahasadisekolah:
           answer: "Tidak Pernah"
           scene: "penggunaaanbahasadisekolah"
   - scene: penggunaanbahsadirumah
+
 #SCENE 14 PENGGUNAAN BAHASA DI RUMAH
 penggunaanbahsadirumah:
   - trackScene:
@@ -643,6 +669,7 @@ penggunaanbahsadirumah:
           scene: "penggunaanbahsadirumah"
   - scene: alasanmemilihsijjikaiya
 scene: bahasadilingkungansosial
+
 #SCENE 15 BAHASA DI LINGKUNGAN SOSIAL
 bahasadilingkungansosial:
   - trackScene:
@@ -689,6 +716,7 @@ bahasadilingkungansosial:
           answer: "Tidak Pernah"
           scene: "bahasadilingkungansosial"
   - scene: tradisisalim
+
 #SCENE 16 TRADISI SALIM
 tradisisalim:
   - trackScene:
@@ -730,6 +758,7 @@ tradisisalim:
           answer: "Tidak Pernah"
           scene: "tradisisalim"
   - scene: sikapmembungkuk
+
 #SCENE 17 SIKAP MEMBUNGKUK
 sikapmembungkuk:
   - trackScene:
@@ -771,6 +800,7 @@ sikapmembungkuk:
           answer: "Tidak Pernah"
           scene: "sikapmembungkuk"
   - scene: bahasasopan
+
 #SCENE 18 BAHASA SOPAN
 bahasasopan:
   - trackscene:
@@ -806,6 +836,7 @@ bahasasopan:
           answer: "Jarang memperhatikan kesopanan"
           scene: "bahasasopan"  
   - scene: sikaptolongmenolong
+
 #SCENE 19 SIKAP TOLONG MENOLONG
 sikaptolongmenolong:
   - trackScene: 
@@ -843,9 +874,10 @@ sikaptolongmenolong:
       "Tidak Pernah":
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa tidak pernah menawarkan bantuan dalam situasi tersebut.
   - scene: kepeduliansosial
+  
 #SCENE 20 KEPEDULIAN SOSIAL 
 kepeduliansosial:
-  - trackScene:
+  - trackScene: 
      scene: "kepeduliansosial"
   - show taman_sekolah: WITH FADE CONTINUE
   - player says neutral: Melihat teman atau orang lain kesulitan. Apakah aku harus diminta menunggu dulu?
@@ -853,123 +885,123 @@ kepeduliansosial:
       question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
       options: ["Selalu", "Sering", "Kadang-kadang", "Jarang", "Tidak Pernah"]
   - choice:
-    - "Selalu": 
-      - researcher says neutral: Bagus sekali {TextInputName_player} selalu dengan insiatif sendiri langsung membantu tanpa perlu diminta.
+    - "Selalu":
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Selalu dengan insiatif sendiri langsung membantu tanpa perlu diminta.
       - recordAnswer:
-           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
-           answer: "Selalu"
-           scene: "kepeduliansosial"
+          question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
+          answer: "Selalu"
+          scene: "kepeduliansosial"
     - "Sering":
-      - researcher says neutral: Bagus sekali {TextInputName_player} Sering membantu meskipun tidak selalu secara spontan.
+      - researcher says neutral: Bagus sekali, {TextInputName_player}. Sering membantu meskipun tidak selalu secara spontan.
       - recordAnswer:
            question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
            answer: "Sering"
            scene: "kepeduliansosial"
-    - "Kadang-kadang":
-      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa kadang-kadang membantu jika merasa mampu."
+    - "kadang-kadang":
+      - researcher says neutral: Terimakasih telah berbagi pengalamnmu {TextInputName_player}. Bahwa kadang-kadang membantu jika merasa mampu.
       - recordAnswer:
            question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
-           answer: "Kadang-kadang"
-           scene: "Kepeduliansosial"
+           answer: "kadang-kadang"
+           scene: "kepeduliansosial"
     - "Jarang":
-      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa jarang dan biasanya menunggu sampai ada permintaan bantuan.
-      - recordAnswer: 
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa Jarang memperhatikan atau menawarkan bantuan.
+      - recordAnswer:
            question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
            answer: "Jarang"
-           scene: "Kepeduliansosial"
-    - "Tidak pernah":
-      - researcher says neutral: "Terima kasih telah berbagi pengalamanmu {TextInputName_player}. bahwa tidak pernah membantu teman atau orang lain yang sedang kesulitan.
-      - recordAnswer:
-           question: "Apakah Anda terbiasa membantu teman atau orang lain yang kesulitan tanpa diminta?"
-           answer: "Tidak Pernah"
-           scene: "Kepeduliansosial"
-    - scene: "Kebiasaanmakan"
+           scene: "kepeduliansosial"
+      "Tidak Pernah":
+      - researcher says neutral: Terima kasih telah berbagi pengalamanmu {TextInputName_player}. Bahwa tidak pernah membantu teman atau orang lain yang sedang kesulitan.
+  - scene: Kebiasaanmakan
+
 #SCENE 21 KEBIASAAN MAKAN  
 Kebiasaanmakan:
   - trackScene:
       scene: "Kebiasaanmakan"
   - show meja_makan: WITH FADE CONTINUE
-  - player says neutral: "Makanan termasuk cerminan identitas budaya bukan ya?"
+  - player says neutral: Makanan termasuk cerminan identitas budaya bukan ya?
   - askQuestion:
-      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
       options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
   - choice:
     - "Makanan Indonesia":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}."
-    - recordAnswer:
-        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
-        answer: "Makanan Indoensia"
-        scene: "Kebiasaanmakan"
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
+          question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+          answer: "Makanan Indoensia"
+          scene: "Kebiasaanmakan"
     - "Makanan Arab":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
-        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
-        answer: "Makanan Arab"
-        scene: "Kebiasaanmakan"
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
+          question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+          answer: "Makanan Arab"
+          scene: "Kebiasaanmakan"
     - "Makanan Western":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
-        question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
-        answer: "Makanan Western"
-        scene: "Kebiasaanmakan"
-    - scene: "kebiasaanmakan1"
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
+          question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan pagi/sarapan"
+          answer: "Makanan Western"
+          scene: "Kebiasaanmakan"
+  - scene: kebiasaanmakan1
+
 #SCENE 22 KEBIASAAN MAKAN 1  
 Kebiasaanmakan1:
   - trackScene:
       scene: "Kebiasaanmakan1"
   - show meja_makan: WITH FADE CONTINUE
   - askQuestion:
-      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
       options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
   - choice:
     - "Makanan Indonesia":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}."
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Indoensia"
         scene: "Kebiasaanmakan1"
     - "Makanan Arab":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Arab"
         scene: "Kebiasaanmakan1"
     - "Makanan Western":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Western"
         scene: "Kebiasaanmakan1"
-    - scene: "kebiasaanmakan2"
+  - scene: kebiasaanmakan2
+
 #SCENE 22 KEBIASAAN MAKAN 2
 Kebiasaanmakan2:
   - trackScene:
       scene: "Kebiasaanmakan2"
   - show meja_makan: WITH FADE CONTINUE
-  - player says neutral: "Makanan termasuk cerminan identitas budaya kita bukan ya?"
+  - player says neutral: Makanan termasuk cerminan identitas budaya kita bukan ya?
   - askQuestion:
-      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam
+      question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
       options: ["Makanan Indonesia", "Makanan Arab", "Makanan Western"]
   - choice:
     - "Makanan Indonesia":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}."
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Indoensia"
         scene: "Kebiasaanmakan2"
     - "Makanan Arab":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Arab"
         scene: "Kebiasaanmakan2"
     - "Makanan Western":
-    - researcher says neutral: "Bagus sekali {TextInputName_player}
-    - recordAnswer:
+      - researcher says neutral: Bagus sekali {TextInputName_player}.
+      - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Western"
         scene: "Kebiasaanmakan2"
-    - scene: "kebanggaanbudaya"
+  - scene: kebanggaanbudaya
+
 #SCENE 23 KEBANGGAN BUDAYA 
 kebanggaanbudaya:
   - trackScene:
@@ -1010,7 +1042,7 @@ kebanggaanbudaya:
           question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
           answer: "Tidak bangga"
           scene: "Kebanggaanbudaya"
-  - scene: "endGame"
+  - scene: endGame
 
 endGame:
   - researcher says neutral: Terima kasih telah bermain!
@@ -1024,3 +1056,6 @@ endGame:
   - call DataCollection: name sendSessionData
   - hide ALL
   - effect ROLLINGCREDITS:
+    endGame: true
+    text:
+     - Created by Wasila dan Alanna
