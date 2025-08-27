@@ -61,8 +61,6 @@ identitasScene:
   - trackScene:
       scene: "identitasScene"
   - show sij_gedung: WITH FADE CONTINUE
-  # Use the new PlayerDisplay plugin to show player with neutral emotion
-  - execute: showPlayer('neutral')
   - player says neutral: Disinilah aku, berdiri di ambang pintu sekolah yang nantinya berarti besar dalam perjalanan menemukan siapa diriku sebenarnya.
   - player says neutral: bagaimana ya rasanya waktu itu? Aku masih ingat pengalaman mendaftar di sekolah indonesia jeddah....
   - askQuestion:
@@ -70,8 +68,6 @@ identitasScene:
       options: ["Sangat Mudah", "Mudah", "Cukup Mudah", "Sulit", "Sangat Sulit"]  
   - choice:
     - "Sangat Mudah":
-      # Show happy emotion using the plugin
-      - execute: showPlayer('happy')
       - player says happy: Alhamdulillah proses pendaftarannya sangat lancar. Staf sekolah ramah sekali dan semuanya terorganisir dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij sangat positif.
       - recordAnswer:
@@ -79,7 +75,6 @@ identitasScene:
           answer: "Sangat Mudah"
           scene: "identitasScene"
     - "Mudah":
-      - execute: showPlayer('happy')
       - player says happy: Prosesnya berjalan baik secara keseluruhan. Hanya ada beberapa formulir yang harus diisi, tapi semuanya jelas dan tidak terlalu rumit kok.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup positif.
       - recordAnswer:
@@ -87,7 +82,6 @@ identitasScene:
           answer: "Mudah"
           scene: "identitasScene"
     - "Cukup Mudah":
-      - execute: showPlayer('thinking')
       - player says happy: Sebenarnya butuh persiapan dan kesabaran juga, tapi pada akhirnya kami bisa melewati prosesnya dengan baik.
       - researcher says neutral: Bagus sekali, {TextInputName_player}. Senang mendengar bahwa pengalaman pendaftaranmu di Sij cukup baik.
       - recordAnswer: 
@@ -95,7 +89,6 @@ identitasScene:
           answer: "Cukup Mudah"
           scene: "identitasScene" 
     - "Sulit":
-      - execute: showPlayer('concerned')
       - player says neutral: Ada beberapa tantangan yang harus kami hadapi selama pendaftaran. Prosesnya tidak selalu mulus dan kadang cukup membingungkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
@@ -103,7 +96,6 @@ identitasScene:
           answer: "Sulit"
           scene: "identitasScene"
     - "Sangat Sulit":
-      - execute: showPlayer('concerned')
       - player says concerned: Prosesnya memang terasa berat. Banyak sekali kendala yang kami hadapi dan semuanya berlangsung jauh lebih lama dari yang kami bayangkan.
       - researcher says neutral: Terima kasih telah berbagi pengalamanmu, {TextInputName_player}. Kami menghargai umpan balikmu.
       - recordAnswer:
@@ -448,7 +440,7 @@ kesempatanberkompitisi:
           question: "Seberapa mampu anda mengikuti lomba yang difasilitasi oleh Sekolah Indonesia Jeddah dalam aspek-aspek berikut: 1. Survei 2. Biaya 3. Akses Transportasi 4. Keterampilan/skill"
           answer: "Tidak Mampu"
           scene: "kesempatanberkompitisi"
-    - scene: lombapuspresnas
+  - scene: lombapuspresnas
 
 #SCENE 9 LOMBA PUSPRESNAS 
 lombapuspresnas:
@@ -626,7 +618,7 @@ penggunaaanbahasadisekolah:
 penggunaanbahsadirumah:
   - trackScene:
       scene: "penggunaanbahsadirumah"
-  - show rumah: WITH FADE CONTINUE
+  - show home: WITH FADE CONTINUE
   - player says neutral: Di rumah, bahasa yang kami gunakan agak berbeda dengan di sekolah.
   - askQuestion: 
       question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
@@ -667,8 +659,7 @@ penggunaanbahsadirumah:
           question: "Seberapa sering Anda menggunakan bahasa berikut di rumah?"
           answer: "Tidak Pernah"
           scene: "penggunaanbahsadirumah"
-  - scene: alasanmemilihsijjikaiya
-scene: bahasadilingkungansosial
+  - scene: bahasadilingkungansosial
 
 #SCENE 15 BAHASA DI LINGKUNGAN SOSIAL
 bahasadilingkungansosial:
@@ -944,9 +935,9 @@ Kebiasaanmakan:
   - scene: kebiasaanmakan1
 
 #SCENE 22 KEBIASAAN MAKAN 1  
-Kebiasaanmakan1:
+kebiasaanmakan1:
   - trackScene:
-      scene: "Kebiasaanmakan1"
+      scene: "kebiasaanmakan1"
   - show meja_makan: WITH FADE CONTINUE
   - askQuestion:
       question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
@@ -957,25 +948,25 @@ Kebiasaanmakan1:
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Indoensia"
-        scene: "Kebiasaanmakan1"
+        scene: "kebiasaanmakan1"
     - "Makanan Arab":
       - researcher says neutral: Bagus sekali {TextInputName_player}.
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Arab"
-        scene: "Kebiasaanmakan1"
+        scene: "kebiasaanmakan1"
     - "Makanan Western":
       - researcher says neutral: Bagus sekali {TextInputName_player}.
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan siang"
         answer: "Makanan Western"
-        scene: "Kebiasaanmakan1"
+        scene: "kebiasaanmakan1"
   - scene: kebiasaanmakan2
 
 #SCENE 22 KEBIASAAN MAKAN 2
-Kebiasaanmakan2:
+kebiasaanmakan2:
   - trackScene:
-      scene: "Kebiasaanmakan2"
+      scene: "kebiasaanmakan2"
   - show meja_makan: WITH FADE CONTINUE
   - player says neutral: Makanan termasuk cerminan identitas budaya kita bukan ya?
   - askQuestion:
@@ -987,19 +978,19 @@ Kebiasaanmakan2:
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Indoensia"
-        scene: "Kebiasaanmakan2"
+        scene: "kebiasaanmakan2"
     - "Makanan Arab":
       - researcher says neutral: Bagus sekali {TextInputName_player}.
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Arab"
-        scene: "Kebiasaanmakan2"
+        scene: "kebiasaanmakan2"
     - "Makanan Western":
       - researcher says neutral: Bagus sekali {TextInputName_player}.
       - recordAnswer:
         question: "Pilih jenis makanan yang sering Anda konsumsi saat Makan malam"
         answer: "Makanan Western"
-        scene: "Kebiasaanmakan2"
+        scene: "kebiasaanmakan2"
   - scene: kebanggaanbudaya
 
 #SCENE 23 KEBANGGAN BUDAYA 
@@ -1023,39 +1014,39 @@ kebanggaanbudaya:
       - recordAnswer:
           question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
           answer: "bangga"
-          scene: "Kebangganbudaya"
+          scene: "kebanggaanbudaya"
     - "Biasa saja":
       - researcher says neutral: Terima kasih{TextInputName_player} kami sangat menghargai pendapatmu.
       - recordAnswer:
           question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
           answer: "Biasa saja"
-          scene: "Kebanggaanbudaya"
+          scene: "kebanggaanbudaya"
     - "Kurang bangga":
       - researcher says neutral: Terima kasih {TextInputName_player} kami sangat menghargai pendapatmu
       - recordAnswer: 
           question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
           answer: "Kurang bangga"
-          scene: "Kebanggaanbudaya"
+          scene: "kebanggaanbudaya"
     - "Tidak bangga":
       - researcher says neutral: Terima kasih {TextInputName_player} kami sangat menghargai pendapatmu
       - recordAnswer:
           question: "Seberapa bangga Anda menggunakan baju tradisional atau nasional indonesia di sekolah maupun di luar sekolah?"
           answer: "Tidak bangga"
-          scene: "Kebanggaanbudaya"
-  - scene: endGame
+          scene: "kebanggaanbudaya"
+  - scene: endgame
 
-endGame:
+endgame:
   - researcher says neutral: Terima kasih telah bermain!
   - trackScene:
-      scene: "endGame"
+      scene: "endgame"
   - show sijsunset: WITH FADE CONTINUED
   - researcher says neutral: Terima kasih {TextInputName_player} atas perjalanan yang  laur biasa ini
   - researcher says neutral: Setiap jawaban yang Anda berikan sangat membantu kami memahami kompleksitas identitas anak muda indonesia di arab Saudi
   - researcher says neutral: Pengalaman Anda sangat berharga untuk penelitian ini. Semoga perjalanan pencarian Anda terus berlanjut dengan penuh makna.
-  - player says neutral: Pwrjalanan ini membuatku lebih memahami diriku sendiri. Ternyata identitasku itu bukan sesuatu yang hitam putih, tapi penuh warna dan nuansa.
+  - player says neutral: Perjalanan ini membuatku lebih memahami diriku sendiri. Ternyata identitasku itu bukan sesuatu yang hitam putih, tapi penuh warna dan nuansa.
   - call DataCollection: name sendSessionData
   - hide ALL
   - effect ROLLINGCREDITS:
-    endGame: true
+    endgame: true
     text:
      - Created by Wasila dan Alanna
